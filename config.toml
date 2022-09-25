@@ -1,15 +1,15 @@
-baseURL = "https://my.site/"
+baseURL = "https://mlb.tomhummel.com"
 languageCode = "en-us"
-title = "My Site"
+title = "Tom Hummel :: Baseball Blog"
 
 [taxonomies]
   tag = "tags"
 
 [params]
-    Title = ""
-    site_description = ""
-    # twitter_handle = ""
-    # github_repo = "https://github.com//"
+    Title = "Tom Hummel's baseball blog"
+    site_description = "Baseball analysis, software, and writing"
+    twitter_handle = "tphummelmlb"
+    github_repo = "https://github.com/tphummel/mlb.tomhummel.com"
     # facebook_handle =
     # instagram_handle =
 

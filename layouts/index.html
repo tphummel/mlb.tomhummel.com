@@ -14,21 +14,20 @@
 {{ end }}
 
 {{ define "main" }}
-<h1>title</h1>
+<h1>{{ $.Site.Params.Title }}</h1>
 
-<p>subtitle</p>
+<p>{{ $.Site.Params.site_description }} </p>
 
 <p>
-  {{ with .Site.GetPage "page" "faq.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
-  {{ with .Site.GetPage "page" "contact.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+  
 </p>
 
-<p>Total Blog Posts: {{ len (where $.Data.Pages "Section" "blog") }}</p>
+<p>Total Blog Posts: {{ len (where $.Site.RegularPages "Section" "blog") }}</p>
 
 <div>
   Newest Blogs:
   <ul>
-  {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "blog") }}
+  {{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
     <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .Permalink }}{{ end }}">More...</a></li>
@@ -37,17 +36,16 @@
 
 <p>
   <small>
-    <a href="">status</a> |
-    <a href="{{ $.Site.Params.github_repo }}">github</a> |
-    <a href="index.xml">rss</a> |
-    <a href="https://twitter.com/{{ $.Site.Params.twitter_handle }}">twitter</a> |
-    <a href="https://facebook.com/{{ $.Site.Params.facebook_handle }}">facebook</a> |
-    <a href="https://instagram.com/{{ $.Site.Params.instagram_handle }}">instagram</a>
+    {{ with .Site.GetPage "page" "faq.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+    {{ with .Site.GetPage "page" "contact.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+    <a href="index.xml">RSS</a> |
+    <a href="{{ $.Site.Params.github_repo }}">GitHub</a> |
+    <a href="https://twitter.com/{{ $.Site.Params.twitter_handle }}">Twitter</a> 
   </small>
 </p>
 <p>
   <small>
-    footer
+    Good teams lose 40% of the time. Good hitters fail 60% of the time. 
   </small>
 </p>
 {{ end }}
