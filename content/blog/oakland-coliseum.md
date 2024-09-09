@@ -31,7 +31,7 @@ A franchise, a roster, and a fanbase with nothing to lose and everything to gain
 
 1972, '73, '74, '89. Yes. 
 
-But also 1971, '75, '81, '88, '90, '92. 2000, '01, '02, '03, '04, '06, '12, '13, '14, '18, '19, '20. These were good teams which ultimately couldn’t get the job done in October. It pains me that I’ll never get to see a World Series game at the Coliseum. But I take some small comfort in the number of chances we had since 1990. And also being better than the Giants by nearly any measure, 1968-2024.
+But also 1971, '75, '81, '88, '90, '92. 2000, '01, '02, '03, '04, '06, '12, '13, '14, '18, '19, '20. These were good teams which ultimately couldn’t get the job done in October. It pains me that I’ll never get to see a World Series game at the Coliseum. But I take some small comfort in the number of chances we had since 1990. And also being better than the Giants head-to-head, and by several measures overall during the Bay Area era.
 
 For several reasons over the decades, practically no one played an entire career of any length entirely with Oakland. Teams tended to be constructed of players young and old, or players in their prime years looking for a second (or third or fourth...) chance to prove themselves. There was no wealth or will to sign vanity contracts to keep a player in the franchise until retirement, the way teams like the Yankees or Cardinals would. You inevitably see long time players like Sal Bando or Eric Chavez have final chapters with other franchises.
 
