@@ -1,4 +1,3 @@
-{{ define "title" }}custom title override{{ end }}
 {{ define "head" }}
 <script type="application/ld+json">
 {
@@ -6,9 +5,7 @@
   "@type": "Organization",
   "name": "my-site",
   "url": "https://my.site",
-  "sameAs": [
-    "https://twitter.com/{{ $.Site.Params.twitter_handle }}"
-  ]
+  "sameAs": []
 }
 </script>
 {{ end }}
@@ -17,17 +14,12 @@
 <h1>{{ $.Site.Params.Title }}</h1>
 
 <p>{{ $.Site.Params.site_description }} </p>
-
-<p>
-  
-</p>
-
 <p>Total Blog Posts: {{ len (where $.Site.RegularPages "Section" "blog") }}</p>
 
 <div>
   Newest Blogs:
   <ul>
-  {{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
+  {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
     <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .Permalink }}{{ end }}">More...</a></li>
@@ -36,11 +28,9 @@
 
 <p>
   <small>
-    {{ with .Site.GetPage "page" "faq.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
-    {{ with .Site.GetPage "page" "contact.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
     <a href="index.xml">RSS</a> |
     <a href="{{ $.Site.Params.github_repo }}">GitHub</a> |
-    <a href="https://twitter.com/{{ $.Site.Params.twitter_handle }}">Twitter</a> 
+    {{ with .Site.GetPage "page" "notices.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
   </small>
 </p>
 <p>
