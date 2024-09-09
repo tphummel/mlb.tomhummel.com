@@ -9,7 +9,7 @@ The Oakland-Alameda County Coliseum. 1968-2024
 
 The Coliseum is weird, man. I mean that in the most loving way possible. It’s actually falling apart. It would be apt to describe the interior walkways as bowels. There are none of the comforts you expect after visiting modern major league venues. 
 
-I suppose it began with a 1970s party which never completely ended. At times the after party has been a little sloppy, but never out of character or offbrand. Expect to hear Earth Wind and Fire, James Brown, or Kool and the Gang on any visit. Despite some Frankenstein-like upgrades over the years, it is somewhat like going back in time - I'll admit not what someone might call charming like Fenway or Wrigley, on its face. 
+I suppose it began with a 1970s party which never completely ended. At times the after party has been a little sloppy, but never out of character or offbrand. Expect to hear Earth Wind and Fire, James Brown, or Kool and the Gang on any visit. Despite some Frankenstein-like upgrades over the years, it is somewhat like going back in time - I'll admit not what someone might call charming like Fenway or Wrigley, at first glance.
 
 But the vibes are everything. When it is filled (even partially) with Oakland A’s fans it comes to life. A's fans are an eclectic group of people bound by a proud tradition of excellence and underdog grit.
 
