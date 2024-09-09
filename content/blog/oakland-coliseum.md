@@ -23,7 +23,7 @@ Subversive and rebellious - both the people in the stands and the teams construc
 
 Like the Coliseum itself, these teams were at times held together with twine and duct tape. But a proud and durable tradition of excellence was never in question. Even at low points such as 1997, it always felt like the next contending team was right around the corner.
 
-A tradition of overperforming expectations with the sum always being greater than the individual parts, rosters were built with prospects, trade returns from the last selloff, castoffs, journeymen, hall of famers looking to make one last run. These players don’t always fit anywhere else. They fit Oakland and they can win games together.
+A tradition of overperforming expectations with the sum always being greater than the individual parts, rosters were built with prospects, trade returns from the last selloff, castoffs, journeymen, and future hall of famers looking to make one last run. These players don’t always fit anywhere else. They fit in Oakland and they can win games together.
 
 Matt Stairs, John Jaha, Mike Piazza, Frank Thomas, Geronimo Berroa, Bartolo Colon, Scott Kazmir, Rich Hill, Liam Hendriks, Brandon McCarthy, Jack Cust, Brandon Moss, Brent Rooker. I'm just rattling off names. The list goes on.
 
