@@ -17,7 +17,7 @@ You'd see tailgating bbq, EZ-up tents, camp chairs, a scruffy guy carrying a 12 
 
 There was nothing quite like seeing the Coliseum at full capacity - a celebration but also clearly under great strain. Bathrooms, concessions, walkways, lighting, all buckling under the weight of the task. But it was electric. Nothing was terribly polished but the passion was overflowing, in total support of this team and our shared history - witnessing history together.
 
-To summarize the Oakland A's in a single game - May 7, 2019, following a 90-minute delay due to a lighting malfunction, Mike Fiers pitches a no hitter.
+To sum up the Oakland A's and the Oakland Coliseum in a single game - May 7, 2019, following a 90-minute delay due to a lighting malfunction, Mike Fiers pitched a no hitter.
 
 Subversive and rebellious - both the people in the stands and the teams constructed on the field. The mustache gang. The bash brothers. The 90s mullets. Moneyball. Post-Moneyball. 
 
@@ -31,7 +31,7 @@ A franchise, a roster, and a fanbase with nothing to lose and everything to gain
 
 1972, '73, '74, '89. Yes. 
 
-But also 1971, '75, '81, '88, '90, '92. 2000, '01, '02, '03, '04, '06, '12, '13, '14, '18, '19, '20. These were good teams which ultimately couldn’t get the job done in October. It pains me that I’ll never get to see a World Series game at the Coliseum. But I take some small comfort in the number of chances we had since 1990 (And also being better than the Giants head-to-head, and by several measures overall, during the Bay Area era.
+But also 1971, '75, '81, '88, '90, '92. 2000, '01, '02, '03, '04, '06, '12, '13, '14, '18, '19, '20. These were good teams which ultimately couldn’t get the job done in October. It pains me that I’ll never get to see a World Series game at the Coliseum. But I take some small comfort in the number of chances we had since 1990 (And also being better than the Giants head-to-head, and by several measures overall, during the Bay Area era.)
 
 For several reasons over the decades, practically no one played an entire career of any length entirely with Oakland. Teams tended to be constructed of players young and old, or players in their prime years looking for a second (or third or fourth...) chance to prove themselves. There was no wealth or will to sign vanity contracts to keep a player in the franchise until retirement, the way teams like the Yankees or Cardinals would. You inevitably see long time players like Sal Bando or Eric Chavez have final chapters with other franchises.
 
