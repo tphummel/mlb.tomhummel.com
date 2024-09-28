@@ -15,6 +15,12 @@ async function handleRequest(event) {
   // https://infosec.mozilla.org/guidelines/web_security#x-frame-options
   response.headers.set('X-Frame-Options', 'DENY')
 
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000')
+
+  response.headers.set('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'")
+  response.headers.set('Access-Control-Allow-Origin', 'https://mlb.tomhummel.com')
+  response.headers.set('Permissions-Policy', 'geolocation=(), microphone=()')
+
   // https://infosec.mozilla.org/guidelines/web_security#x-xss-protection
   response.headers.set('X-XSS-Protection', '1; mode=block')
 
