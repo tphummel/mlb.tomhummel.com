@@ -4,11 +4,12 @@
 
 <p>
   {{ partial "breadcrumb.html" . }}
-  {{ partial "tag-list.html" . }}
 </p>
 
 {{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
 
 {{ .Content }}
 
+
+{{ partial "tag-list.html" . }}
 {{ end }}
