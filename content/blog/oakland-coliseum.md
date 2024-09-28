@@ -1,7 +1,9 @@
 ---
-title: "Oakland Coliseum"
-date: 2024-09-08
+title: "The Oakland Coliseum"
+date: 2024-09-27
 tags: ["personal"]
+players: ["stephen-vogt","tim-hudson"]
+teams: ["athletics"]
 
 ---
 The Oakland-Alameda County Coliseum. 1968-2024
