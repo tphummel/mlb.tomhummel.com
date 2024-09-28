@@ -41,7 +41,7 @@ My favorite personal memories at the Coliseum
 - 09/29/2012: Josh Donaldson homer to send it to extras in the bottom of the ninth and Brandon Moss homer to walk it off in the 10th. Must win game in a string of must win games which led to winning the AL West days later on game 162.
 - 10/5/2013: ALDS Game 2 vs. Tigers. Stephen Vogt walkoff single in bot 9. Sonny Gray outduels Justin Verlander. 48,292 attendance.
 - 10/2/2019: Seeing the Coliseum packed for the 2019 Wild Card. 54,005 in attendance (Mt. Davis tarps off!)
-- 8/20/2023: Running the bases with my two sons (the only time I was ever been on the field)
+- 8/20/2023: Running the bases with my two sons (the only time I was ever on the field)
 - 9/6/2024: Taking my two sons to their final game in Oakland. 
 - 9/22/2024: The final Sunday game in Oakland.
 
