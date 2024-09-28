@@ -1,7 +1,23 @@
+{{- with .Params.players -}}
+<div class="players">Players:
+  [{{- range $i, $player := . -}}
+    {{- if $i -}}, {{ end -}}
+    <span><a href="{{ "/players/" | relLangURL }}{{ . | urlize }}">{{ $player }}</a></span>
+  {{- end -}}]
+</div>
+{{- end -}}
+{{- with .Params.teams -}}
+<div class="teams">Teams:
+  [{{- range $i, $team := . -}}
+    {{- if $i -}}, {{ end -}}
+    <span><a href="{{ "/teams/" | relLangURL }}{{ . | urlize }}">{{ $team }}</a></span>
+  {{- end -}}]
+</div>
+{{- end -}}
 {{- with .Params.tags -}}
-<div class="tags">
+<div class="tags">Tags: 
   [{{- range $i, $tag := . -}}
-    {{- if $i -}}, {{- end -}}
+    {{- if $i -}}, {{ end -}}
     <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ $tag }}</a></span>
   {{- end -}}]
 </div>

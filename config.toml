@@ -4,6 +4,8 @@ title = "Tom Hummel :: Baseball Blog"
 
 [taxonomies]
   tag = "tags"
+  player = "players"
+  team = "teams"
 
 [params]
     Title = "Tom Hummel's Baseball Blog"
