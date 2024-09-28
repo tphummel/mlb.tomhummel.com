@@ -17,7 +17,7 @@ You'd see tailgating bbq, EZ-up tents, camp chairs, a scruffy guy carrying a 12 
 
 There was nothing quite like seeing the Coliseum at full capacity - a celebration but also clearly under great strain. Bathrooms, concessions, walkways, lighting, all buckling under the weight of the task. But it was electric. Nothing was terribly polished but the passion was overflowing, in total support of this team and our shared history - witnessing history together.
 
-Subversive and rebellious - both the people in the stands and the teams constructed on the field. The mustache gang. The bash brothers. The 90s mullets. Moneyball. Post-Moneyball. 
+Subversive and rebellious - both the people in the stands and the teams constructed on the field. The mustache gang. The bash brothers. The 90s mullets. Moneyball. Post-Moneyball BoMel teams. 
 
 Like the Coliseum itself, these teams were at times held together with twine and duct tape. But a proud and durable tradition of excellence was never in question. Even at low points such as 1997, it always felt like the next contending team was right around the corner.
 
