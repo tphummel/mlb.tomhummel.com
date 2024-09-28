@@ -38,7 +38,7 @@ My favorite personal memories at the Coliseum
 - 10/1/2000: Sitting in the third deck just to the third base side of home plate to see the A's clinch the AL West with a 3-0 win over the Rangers. Tim Hudson threw 8.0 innings with 0 runs allowed and 10 k for his 20th win of the season. 45,606 in attendance.
 - 10/14/2001: ALDS Game 4 vs. Yankees. The Jermaine Dye broken leg game.
 - 10/11/2006: ALCS Game 2 vs. Tigers. My dad and I watching deep October baseball in Oakland.
-- 09/26/2012: Josh Donaldson homer to send it to extras in the bottom of the ninth and Brandon Moss homer to walk it off in the 10th. Must win game in a string of must win games which led to winning the AL West days later on game 162.
+- 09/29/2012: Josh Donaldson homer to send it to extras in the bottom of the ninth and Brandon Moss homer to walk it off in the 10th. Must win game in a string of must win games which led to winning the AL West days later on game 162.
 - 10/5/2013: ALDS Game 2 vs. Tigers. Stephen Vogt walkoff single in bot 9. Sonny Gray outduels Justin Verlander. 48,292 attendance.
 - 10/2/2019: Seeing the Coliseum packed for the 2019 Wild Card. 54,005 in attendance (Mt. Davis tarps off!)
 - 8/20/2023: Running the bases with my two sons (the only time I was ever been on the field)
