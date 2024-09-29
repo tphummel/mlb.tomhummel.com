@@ -35,6 +35,7 @@ But also 1971, '75, '81, '88, '90, '92. 2000, '01, '02, '03, '04, '06, '12, '13,
 
 My favorite personal memories at the Coliseum
 
+- 7/18/1984: My first game at the Coliseum - as a newborn baby. (not a memory exactly...)
 - 6/23/1994: Bobby Witt pitched a 1-hit shutout with 14 k and 0 bb. The only hit was a bunt single by Greg Gagne in Top of 6th. 
 - 4/2/1997: A's Home Opener, 41,235 in attendance. Mark McGwire, Jose Canseco, and Jason Giambi in the starting lineup. 
 - 10/1/2000: Sitting in the third deck just to the third base side of home plate to see the A's clinch the AL West with a 3-0 win over the Rangers. Tim Hudson threw 8.0 innings with 0 runs allowed and 10 k for his 20th win of the season. 45,606 in attendance.
