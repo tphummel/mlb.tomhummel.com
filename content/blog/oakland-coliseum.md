@@ -38,6 +38,7 @@ My favorite personal memories at the Coliseum
 - 6/23/1994: Bobby Witt pitched a 1-hit shutout with 14 k and 0 bb. The only hit was a bunt single by Greg Gagne in Top of 6th. 
 - 4/2/1997: A's Home Opener, 41,235 in attendance. Mark McGwire, Jose Canseco, and Jason Giambi in the starting lineup. 
 - 10/1/2000: Sitting in the third deck just to the third base side of home plate to see the A's clinch the AL West with a 3-0 win over the Rangers. Tim Hudson threw 8.0 innings with 0 runs allowed and 10 k for his 20th win of the season. 45,606 in attendance.
+- 09/23/2001: A's clinch AL Wild Card. Mark Mulder's 20th win of season.
 - 10/14/2001: ALDS Game 4 vs. Yankees. The Jermaine Dye broken leg game.
 - 10/11/2006: ALCS Game 2 vs. Tigers. My dad and I watching deep October baseball in Oakland.
 - 09/29/2012: Josh Donaldson homer to send it to extras in the bottom of the ninth and Brandon Moss homer to walk it off in the 10th. Must win game in a string of must win games which led to winning the AL West days later on game 162.
