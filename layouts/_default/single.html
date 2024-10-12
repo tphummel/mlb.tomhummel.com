@@ -2,14 +2,22 @@
 
 <h2>{{.Title}}</h2>
 
-<p>
-  {{ partial "breadcrumb.html" . }}
-</p>
+<div>{{ partial "breadcrumb.html" . }}</div>
+<div>{{ .Date.Format "January 2, 2006" }}</div>
 
 {{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
 
 {{ .Content }}
 
 
-{{ partial "tag-list.html" . }}
+<p>
+  {{ partial "tag-list.html" . }}
+</p>
+<p>
+  {{ with .GitInfo }}
+    <div style="opacity:0.3">
+      Updated At: {{ dateFormat "2006-01-02 15:04 -0700" .AuthorDate.Local }} (<a href="{{$.Site.Params.github_repo}}commit/{{ .Hash }}">{{ .AbbreviatedHash }}</a>)
+    </div>
+  {{ end }}
+</p>
 {{ end }}

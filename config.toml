@@ -2,6 +2,7 @@ baseURL = "https://mlb.tomhummel.com"
 languageCode = "en-us"
 title = "Tom Hummel :: Baseball Blog"
 enableInlineShortcodes = true
+enableGitInfo = true
 
 [taxonomies]
   tag = "tags"
