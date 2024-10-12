@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1>{{.Title}}</h1>
+<h1>{{.Title | humanize | title }}</h1>
 
 <p>{{ partial "breadcrumb.html" . }}</p>
 
@@ -10,7 +10,7 @@
 <ul>
   {{ range .Data.Pages }}
     <li>
-      <a href="{{ .RelPermalink }}">{{.Title}}</a>
+      <a href="{{ .RelPermalink }}">{{.Title | humanize | title}}</a>
     </li>
   {{ end }}
 </ul>

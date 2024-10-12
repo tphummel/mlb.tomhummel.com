@@ -2,7 +2,7 @@
 <div class="players">Players:
   [{{- range $i, $player := . -}}
     {{- if $i -}}, {{ end -}}
-    <span><a href="{{ "/players/" | relLangURL }}{{ . | urlize }}">{{ $player }}</a></span>
+    <span><a href="{{ "/players/" | relLangURL }}{{ . | urlize }}">{{ $player | humanize | title }}</a></span>
   {{- end -}}]
 </div>
 {{- end -}}
@@ -10,7 +10,7 @@
 <div class="teams">Teams:
   [{{- range $i, $team := . -}}
     {{- if $i -}}, {{ end -}}
-    <span><a href="{{ "/teams/" | relLangURL }}{{ . | urlize }}">{{ $team }}</a></span>
+    <span><a href="{{ "/teams/" | relLangURL }}{{ . | urlize }}">{{ $team | humanize | title }}</a></span>
   {{- end -}}]
 </div>
 {{- end -}}

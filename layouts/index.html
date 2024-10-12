@@ -30,9 +30,39 @@
   Newest TILs:
   <ul>
   {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "til") }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li>{{ .Date.Format "2006-01-02" }} <a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
     <li><a href="{{ with .Site.GetPage "section" "til" }}{{ .Permalink }}{{ end }}">More...</a></li>
+  </ul>
+</div>
+
+<div>
+  Teams:
+  <ul>
+    {{range $name, $taxonomy := .Site.Taxonomies.teams}}
+      {{ $cnt := .Count }}
+      {{ with $.Site.GetPage (printf "/teams/%s" $name) }}
+      <li>
+        <a href={{ .RelPermalink }} title="All pages mentioning the team {{$name}}">{{ .LinkTitle | humanize | title }}</a>
+        <sup>{{ $cnt }}</sup>
+      </li>
+      {{end}}
+    {{end}}
+  </ul>
+</div>
+
+<div>
+  Players:
+  <ul>
+    {{range $name, $taxonomy := .Site.Taxonomies.players}}
+      {{ $cnt := .Count }}
+      {{ with $.Site.GetPage (printf "/players/%s" $name) }}
+      <li>
+        <a href={{ .RelPermalink }} title="All pages mentioning the player {{$name}}">{{ .LinkTitle | humanize | title }}</a>
+        <sup>{{ $cnt }}</sup>
+      </li>
+      {{end}}
+    {{end}}
   </ul>
 </div>
 
@@ -42,11 +72,6 @@
     <a href="{{ $.Site.Params.github_repo }}">GitHub</a> |
     {{ with .Site.GetPage "page" "notices.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
     <a href="https://tomhummel.com">tomhummel.com</a>
-  </small>
-</p>
-<p>
-  <small>
-    Good teams lose 40% of the time. Good hitters fail 60% of the time. 
   </small>
 </p>
 {{ end }}
