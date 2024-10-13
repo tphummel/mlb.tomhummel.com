@@ -1,5 +1,5 @@
 ---
-title: "Athletics vs. Giants"
+title: "Oakland Athletics vs. San Franisco Giants"
 date: 2024-10-13
 tags: []
 players: []
