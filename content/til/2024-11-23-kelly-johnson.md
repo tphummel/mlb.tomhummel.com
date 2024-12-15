@@ -1,5 +1,5 @@
 ---
-title: "Kelly Johnsno"
+title: "Kelly Johnson"
 date: 2024-11-23
 players: ["kelly-johnson"]
 tags: ["immaculate-grid"]
