@@ -1,4 +1,4 @@
-baseURL = "https://mlb.tomhummel.com"
+baseURL = "https://mlb.tomhummel.com/"
 languageCode = "en-us"
 title = "Tom Hummel :: Baseball Blog"
 enableInlineShortcodes = true
@@ -12,7 +12,7 @@ enableGitInfo = true
 [params]
     Title = "Tom Hummel's Baseball Blog"
     site_description = "Baseball analysis, software, and writing."
-    github_repo = "https://github.com/tphummel/mlb.tomhummel.com"
+    github_repo = "https://github.com/tphummel/mlb.tomhummel.com/"
 
 [markup]
   [markup.tableOfContents]
