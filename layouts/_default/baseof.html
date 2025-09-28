@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title>{{ block "title" . }}{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 16 16'><text x='0' y='14'>⚾️</text></svg>" />
-    <meta id="description" name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.site_description }}{{ end }}{{ end }}"/>
+        <title>{{ block "title" . }}{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 16 16'
+><text x='0' y='14'>⚾️</text></svg>" />
+    <meta id="description" name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else
+ }}{{ .Site.Params.site_description }}{{ end }}{{ end }}"/>
 
     {{ if eq (getenv "HUGO_ENV") "production" }}
       <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -18,22 +20,94 @@
     <!-- <link rel="stylesheet" href="https://unpkg.com/mvp.css"> -->
     <style type="text/css">
       /* https://www.swyx.io/css-100-bytes */
+      :root {
+        color-scheme: dark;
+      }
+
       html {
-        max-width: 70ch;
-        padding: 3em 1em;
+        max-width: 72ch;
+        padding: 3.5em 1.25em;
         margin: auto;
-        line-height: 1.75;
-        font-size: 1.25em;
-        font-family: sans-serif;
+        line-height: 1.8;
+        font-size: 1.2em;
+        font-family: "Courier Prime", "IBM Plex Mono", "Fira Code", "Source Code Pro", "Courier New", monospace;
+        background: #1a0505;
+        color: #f8f5f2;
       }
 
-      h1,h2,h3,h4,h5,h6 {
+      body {
+        margin: 0;
+        background: transparent;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
         margin: 3em 0 1em;
+        color: #ffdfba;
+        letter-spacing: 0.04em;
       }
 
-      p,ul,ol {
+      p, ul, ol {
         margin-bottom: 2em;
-        color: #1d1d1d;
+      }
+
+      a {
+        color: #ffa65c;
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(255, 166, 92, 0.6);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      a:hover,
+      a:focus {
+        color: #ffe4c4;
+        border-color: #ffe4c4;
+      }
+
+      code, pre {
+        font-family: inherit;
+        background: rgba(248, 245, 242, 0.08);
+        color: #ffe4c4;
+        border-radius: 6px;
+      }
+
+      code {
+        padding: 0.1em 0.3em;
+      }
+
+      pre {
+        padding: 1.25em;
+        overflow-x: auto;
+      }
+
+      blockquote {
+        border-left: 3px solid #ff6f61;
+        padding-left: 1.5em;
+        color: #ffe4c4;
+        background: rgba(255, 111, 97, 0.08);
+        margin: 2.5em 0;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px dashed rgba(255, 214, 186, 0.4);
+        margin: 3em 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2.5em;
+        background: rgba(26, 5, 5, 0.6);
+      }
+
+      th, td {
+        padding: 0.75em 1em;
+        border: 1px solid rgba(255, 214, 186, 0.3);
+      }
+
+      th {
+        background: rgba(255, 166, 92, 0.2);
+        color: #fff2e2;
       }
     </style>
   </head>
