@@ -1,5 +1,5 @@
 ---
-title: "Mike trout 2012-2016"
+title: "Mike Trout 2012-2016"
 date: 2025-09-05
 players: ["mike-trout", "robinson-cano", "adrian-beltre", "josh-donaldson", "miguel-cabrera", "yoenis-cespedes", "clayton-kershaw"]
 teams: ["angels", "mariners", "rangers", "blue-jays", "tigers", "athletics", "dodgers"]
