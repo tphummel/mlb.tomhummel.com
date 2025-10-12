@@ -217,36 +217,6 @@ checklist:
 
 A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
 
-{{< checklist.inline >}}
-{{- $checklist := default (slice) .Page.Params.checklist -}}
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Owned</th>
-      <th scope="col">#</th>
-      <th scope="col">Date</th>
-      <th scope="col">Players</th>
-      <th scope="col">Print Run</th>
-      <th scope="col">Title</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{- range $checklist }}
-    <tr>
-      <td>{{ cond .have_base "✓" "○" }}</td>
-      <td>{{ .number }}</td>
-      <td>{{ .date }}</td>
-      <td>{{ delimit .players ", " }}</td>
-      <td>{{ with .print_run }}{{ . }}{{ end }}</td>
-      <td>{{ with .title }}{{ . }}{{ end }}</td>
-    </tr>
-  {{- end }}
-  </tbody>
-</table>
-{{< /checklist.inline >}}
-
-<!--more-->
-
 {{< checklist_stat.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
 {{- $type := .Get "type" -}}
@@ -278,4 +248,34 @@ A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the tea
 - **Total Cards:** {{< checklist_stat.inline type="total" />}}
 - **Cards Owned:** {{< checklist_stat.inline type="owned" />}} / {{< checklist_stat.inline type="total" />}} ({{< checklist_stat.inline type="owned-percent" />}}%)
 - **Rookie Cards:** {{< checklist_stat.inline type="rookies" />}}
+
+<!--more-->
+
+{{< checklist.inline >}}
+{{- $checklist := default (slice) .Page.Params.checklist -}}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Owned</th>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Players</th>
+      <th scope="col">Print Run</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{- range $checklist }}
+    <tr>
+      <td>{{ cond .have_base "✓" "○" }}</td>
+      <td>{{ .number }}</td>
+      <td>{{ .date }}</td>
+      <td>{{ delimit .players ", " }}</td>
+      <td>{{ with .print_run }}{{ . }}{{ end }}</td>
+      <td>{{ with .title }}{{ . }}{{ end }}</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+{{< /checklist.inline >}}
 
