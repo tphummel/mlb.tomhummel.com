@@ -238,6 +238,27 @@ checklist:
 {{- end -}}
 {{< /checklist_stat.inline >}}
 
+{{< checklist.inline >}}
+{{- $checklist := default (slice) .Page.Params.checklist -}}
+{{- range $checklist }}
+  {{- $status := cond .have_base "✓" "○" -}}
+- {{ $status }} **#{{ .number }}** - {{ .title }} ({{ delimit .players ", " }})
+  - Date: {{ .date }}
+  {{ with .print_run }}
+  - Print Run: {{ . }}
+  {{ end }}
+  {{ with .shortprint }}
+  - Short Print: {{ . }}
+  {{ end }}
+  {{ with .labels }}
+  - Labels: {{ delimit . ", " }}
+  {{ end }}
+  {{ with .notes }}
+  - Notes: {{ . }}
+  {{ end }}
+{{- end }}
+{{< /checklist.inline >}}
+
 A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
 
 <!--more-->
@@ -251,15 +272,7 @@ A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the tea
 
 ## Checklist
 
-{{ range .Params.checklist }}
-{{ $status := cond .have_base "✓" "○" }}
-- {{ $status }} **#{{ .number }}** - {{ .title }} ({{ delimit .players ", " }})
-  - Date: {{ .date }}
-  {{ if .print_run }}- Print Run: {{ .print_run }}{{ end }}
-  {{ if .shortprint }}- Short Print: {{ .shortprint }}{{ end }}
-  {{ if .labels }}- Labels: {{ delimit .labels ", " }}{{ end }}
-  {{ if .notes }}- Notes: {{ .notes }}{{ end }}
-{{ end }}
+{{< checklist.inline />}}
 
 ## Set Overview
 
