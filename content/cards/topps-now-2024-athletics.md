@@ -212,21 +212,56 @@ checklist:
     print_run: null
     have_base: false
     notes: "Lou Gehrig Day Set"
+
 ---
+
+A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
+
+{{< checklist.inline >}}
+{{- $checklist := default (slice) .Page.Params.checklist -}}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Owned</th>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Players</th>
+      <th scope="col">Print Run</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{- range $checklist }}
+    <tr>
+      <td>{{ cond .have_base "✓" "○" }}</td>
+      <td>{{ .number }}</td>
+      <td>{{ .date }}</td>
+      <td>{{ delimit .players ", " }}</td>
+      <td>{{ with .print_run }}{{ . }}{{ end }}</td>
+      <td>{{ with .title }}{{ . }}{{ end }}</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+{{< /checklist.inline >}}
+
+<!--more-->
 
 {{< checklist_stat.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
-{{- $type := .Get "type" | default "total" -}}
-{{- $total := len $checklist -}}
-{{- if eq $type "total" -}}
+{{- $type := .Get "type" -}}
+{{- if not $type -}}
+{{- else if eq $type "total" -}}
+  {{- $total := len $checklist -}}
   {{- $total -}}
 {{- else if eq $type "owned" -}}
+  {{- $total := len $checklist -}}
   {{- len (where $checklist "have_base" true) -}}
 {{- else if eq $type "rookies" -}}
+  {{- $total := len $checklist -}}
   {{- len (where $checklist "labels" "intersect" (slice "RC")) -}}
-{{- else if eq $type "shortprints" -}}
-  {{- len (where (where $checklist "shortprint" "ne" nil) "shortprint" "ne" "") -}}
 {{- else if eq $type "owned-percent" -}}
+  {{- $total := len $checklist -}}
   {{- if gt $total 0 -}}
     {{- $owned := len (where $checklist "have_base" true) -}}
     {{- printf "%.1f" (mul (div (float $owned) (float $total)) 100.0) -}}
@@ -238,54 +273,11 @@ checklist:
 {{- end -}}
 {{< /checklist_stat.inline >}}
 
-{{< checklist.inline >}}
-{{- $checklist := default (slice) .Page.Params.checklist -}}
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Owned</th>
-      <th scope="col">#</th>
-      <th scope="col">Date</th>
-      <th scope="col">Title</th>
-      <th scope="col">Players</th>
-      <th scope="col">Print Run</th>
-      <th scope="col">Short Print</th>
-      <th scope="col">Labels</th>
-      <th scope="col">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{- range $checklist }}
-    <tr>
-      <td>{{ cond .have_base "✓" "○" }}</td>
-      <td>{{ .number }}</td>
-      <td>{{ .date }}</td>
-      <td>{{ with .title }}{{ . }}{{ end }}</td>
-      <td>{{ delimit .players ", " }}</td>
-      <td>{{ with .print_run }}{{ . }}{{ end }}</td>
-      <td>{{ with .shortprint }}{{ . }}{{ end }}</td>
-      <td>{{ with .labels }}{{ delimit . ", " }}{{ end }}</td>
-      <td>{{ with .notes }}{{ . }}{{ end }}</td>
-    </tr>
-  {{- end }}
-  </tbody>
-</table>
-{{< /checklist.inline >}}
-
-A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
-
-<!--more-->
-
 ## Collection Stats
 
 - **Total Cards:** {{< checklist_stat.inline type="total" />}}
 - **Cards Owned:** {{< checklist_stat.inline type="owned" />}} / {{< checklist_stat.inline type="total" />}} ({{< checklist_stat.inline type="owned-percent" />}}%)
 - **Rookie Cards:** {{< checklist_stat.inline type="rookies" />}}
-- **Short Prints:** {{< checklist_stat.inline type="shortprints" />}}
-
-## Checklist
-
-{{< checklist.inline />}}
 
 ## Set Overview
 
