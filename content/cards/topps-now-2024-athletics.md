@@ -215,6 +215,8 @@ checklist:
 
 ---
 
+## Summary
+
 {{< checklist_stat.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
 {{- $total := len $checklist -}}
@@ -227,10 +229,6 @@ checklist:
   <li><strong>Rookie Cards:</strong> {{ $rookies }}</li>
 </ul>
 {{< /checklist_stat.inline >}}
-
-## Summary
-
-{{< checklist_stat.inline />}}
 
 <!--more-->
 
