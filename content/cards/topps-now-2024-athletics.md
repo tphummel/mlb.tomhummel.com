@@ -118,7 +118,7 @@ checklist:
     title: "Crushes 2nd 3-HR Game of 2024 to Make MLB History"
     shortprint: "Bonus-RTOD ODB33"
     labels: ["RC"]
-    print_run: null
+    print_run: 1216
     have_base: false
 
   - number: 635
