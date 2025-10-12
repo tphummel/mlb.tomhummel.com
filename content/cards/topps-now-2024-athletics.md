@@ -215,8 +215,6 @@ checklist:
 
 ---
 
-A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
-
 {{< checklist_stat.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
 {{- $type := .Get "type" -}}
