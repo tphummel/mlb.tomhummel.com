@@ -220,33 +220,33 @@ A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the tea
 
 ## Collection Stats
 
-{{< % .Scratch.Set "total" 0 %>}}
-{{< % .Scratch.Set "owned" 0 %>}}
-{{< % .Scratch.Set "rookies" 0 %>}}
-{{< % .Scratch.Set "shortprints" 0 %>}}
-{{< % range .Params.checklist %>}}
-  {{< % $.Scratch.Add "total" 1 %>}}
-  {{< % if .have_base %>}}{{< % $.Scratch.Add "owned" 1 %>}}{{< % end %>}}
-  {{< % if in .labels "RC" %>}}{{< % $.Scratch.Add "rookies" 1 %>}}{{< % end %>}}
-  {{< % if .shortprint %>}}{{< % $.Scratch.Add "shortprints" 1 %>}}{{< % end %>}}
-{{< % end %>}}
+{{% .Scratch.Set "total" 0 %}}
+{{% .Scratch.Set "owned" 0 %}}
+{{% .Scratch.Set "rookies" 0 %}}
+{{% .Scratch.Set "shortprints" 0 %}}
+{{% range .Params.checklist %}}
+  {{% $.Scratch.Add "total" 1 %}}
+  {{% if .have_base %}}{{% $.Scratch.Add "owned" 1 %}}{{% end %}}
+  {{% if in .labels "RC" %}}{{% $.Scratch.Add "rookies" 1 %}}{{% end %}}
+  {{% if .shortprint %}}{{% $.Scratch.Add "shortprints" 1 %}}{{% end %}}
+{{% end %}}
 
-- **Total Cards:** {{< % .Scratch.Get "total" %>}}
-- **Cards Owned:** {{< % .Scratch.Get "owned" %>}} / {{< % .Scratch.Get "total" %>}} ({{< % $pct := div (mul (.Scratch.Get "owned") 100.0) (.Scratch.Get "total") %>}}{{< % printf "%.1f" $pct %>}}%)
-- **Rookie Cards:** {{< % .Scratch.Get "rookies" %>}}
-- **Short Prints:** {{< % .Scratch.Get "shortprints" %>}}
+- **Total Cards:** {{% .Scratch.Get "total" %}}
+- **Cards Owned:** {{% .Scratch.Get "owned" %}} / {{% .Scratch.Get "total" %}} ({{% $pct := div (mul (.Scratch.Get "owned") 100.0) (.Scratch.Get "total") %}}{{% printf "%.1f" $pct %}}%)
+- **Rookie Cards:** {{% .Scratch.Get "rookies" %}}
+- **Short Prints:** {{% .Scratch.Get "shortprints" %}}
 
 ## Checklist
 
-{{< % range .Params.checklist %>}}
-{{< % $status := cond .have_base "✓" "○" %>}}
-- {{< % $status %>}} **#{{< % .number %>}}** - {{< % .title %>}} ({{< % delimit .players ", " %>}})
-  - Date: {{< % .date %>}}
-  {{< % if .print_run %>}}- Print Run: {{< % .print_run %>}}{{< % end %>}}
-  {{< % if .shortprint %>}}- Short Print: {{< % .shortprint %>}}{{< % end %>}}
-  {{< % if .labels %>}}- Labels: {{< % delimit .labels ", " %>}}{{< % end %>}}
-  {{< % if .notes %>}}- Notes: {{< % .notes %>}}{{< % end %>}}
-{{< % end %>}}
+{{% range .Params.checklist %}}
+{{% $status := cond .have_base "✓" "○" %}}
+- {{% $status %}} **#{{% .number %}}** - {{% .title %}} ({{% delimit .players ", " %}})
+  - Date: {{% .date %}}
+  {{% if .print_run %}}- Print Run: {{% .print_run %}}{{% end %}}
+  {{% if .shortprint %}}- Short Print: {{% .shortprint %}}{{% end %}}
+  {{% if .labels %}}- Labels: {{% delimit .labels ", " %}}{{% end %}}
+  {{% if .notes %}}- Notes: {{% .notes %}}{{% end %}}
+{{% end %}}
 
 ## Set Overview
 
