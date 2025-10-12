@@ -214,39 +214,52 @@ checklist:
     notes: "Lou Gehrig Day Set"
 ---
 
+{{< checklist_stat.inline >}}
+{{- $checklist := default (slice) .Page.Params.checklist -}}
+{{- $type := .Get "type" | default "total" -}}
+{{- $total := len $checklist -}}
+{{- if eq $type "total" -}}
+  {{- $total -}}
+{{- else if eq $type "owned" -}}
+  {{- len (where $checklist "have_base" true) -}}
+{{- else if eq $type "rookies" -}}
+  {{- len (where $checklist "labels" "intersect" (slice "RC")) -}}
+{{- else if eq $type "shortprints" -}}
+  {{- len (where (where $checklist "shortprint" "ne" nil) "shortprint" "ne" "") -}}
+{{- else if eq $type "owned-percent" -}}
+  {{- if gt $total 0 -}}
+    {{- $owned := len (where $checklist "have_base" true) -}}
+    {{- printf "%.1f" (mul (div (float $owned) (float $total)) 100.0) -}}
+  {{- else -}}
+    0.0
+  {{- end -}}
+{{- else -}}
+  0
+{{- end -}}
+{{< /checklist_stat.inline >}}
+
 A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
 
 <!--more-->
 
 ## Collection Stats
 
-{{% .Scratch.Set "total" 0 %}}
-{{% .Scratch.Set "owned" 0 %}}
-{{% .Scratch.Set "rookies" 0 %}}
-{{% .Scratch.Set "shortprints" 0 %}}
-{{% range .Params.checklist %}}
-  {{% $.Scratch.Add "total" 1 %}}
-  {{% if .have_base %}}{{% $.Scratch.Add "owned" 1 %}}{{% end %}}
-  {{% if in .labels "RC" %}}{{% $.Scratch.Add "rookies" 1 %}}{{% end %}}
-  {{% if .shortprint %}}{{% $.Scratch.Add "shortprints" 1 %}}{{% end %}}
-{{% end %}}
-
-- **Total Cards:** {{% .Scratch.Get "total" %}}
-- **Cards Owned:** {{% .Scratch.Get "owned" %}} / {{% .Scratch.Get "total" %}} ({{% $pct := div (mul (.Scratch.Get "owned") 100.0) (.Scratch.Get "total") %}}{{% printf "%.1f" $pct %}}%)
-- **Rookie Cards:** {{% .Scratch.Get "rookies" %}}
-- **Short Prints:** {{% .Scratch.Get "shortprints" %}}
+- **Total Cards:** {{< checklist_stat.inline type="total" />}}
+- **Cards Owned:** {{< checklist_stat.inline type="owned" />}} / {{< checklist_stat.inline type="total" />}} ({{< checklist_stat.inline type="owned-percent" />}}%)
+- **Rookie Cards:** {{< checklist_stat.inline type="rookies" />}}
+- **Short Prints:** {{< checklist_stat.inline type="shortprints" />}}
 
 ## Checklist
 
-{{% range .Params.checklist %}}
-{{% $status := cond .have_base "✓" "○" %}}
-- {{% $status %}} **#{{% .number %}}** - {{% .title %}} ({{% delimit .players ", " %}})
-  - Date: {{% .date %}}
-  {{% if .print_run %}}- Print Run: {{% .print_run %}}{{% end %}}
-  {{% if .shortprint %}}- Short Print: {{% .shortprint %}}{{% end %}}
-  {{% if .labels %}}- Labels: {{% delimit .labels ", " %}}{{% end %}}
-  {{% if .notes %}}- Notes: {{% .notes %}}{{% end %}}
-{{% end %}}
+{{ range .Params.checklist }}
+{{ $status := cond .have_base "✓" "○" }}
+- {{ $status }} **#{{ .number }}** - {{ .title }} ({{ delimit .players ", " }})
+  - Date: {{ .date }}
+  {{ if .print_run }}- Print Run: {{ .print_run }}{{ end }}
+  {{ if .shortprint }}- Short Print: {{ .shortprint }}{{ end }}
+  {{ if .labels }}- Labels: {{ delimit .labels ", " }}{{ end }}
+  {{ if .notes }}- Notes: {{ .notes }}{{ end }}
+{{ end }}
 
 ## Set Overview
 
