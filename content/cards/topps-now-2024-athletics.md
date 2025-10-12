@@ -228,11 +228,13 @@ checklist:
 </ul>
 {{< /checklist_stat.inline >}}
 
-## Collection Stats
+## Summary
 
 {{< checklist_stat.inline />}}
 
 <!--more-->
+
+## Checklist
 
 {{< checklist.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
