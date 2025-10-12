@@ -279,13 +279,3 @@ A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the tea
 - **Cards Owned:** {{< checklist_stat.inline type="owned" />}} / {{< checklist_stat.inline type="total" />}} ({{< checklist_stat.inline type="owned-percent" />}}%)
 - **Rookie Cards:** {{< checklist_stat.inline type="rookies" />}}
 
-## Set Overview
-
-The 2024 Topps NOW Oakland Athletics set captures the team's final season at the Oakland Coliseum. The set features 24 cards spanning the entire season from April through September.
-
-### Notable Highlights
-
-- **Lawrence Butler's Dominance:** Butler appears on 5 cards, including two 3-HR games (making MLB history), a 20-game hit streak, and a 9-game extra-base hit streak
-- **Final Game at the Coliseum:** Three cards (#760, #761, #762) commemorate September 26th, the final game at Oakland Coliseum
-- **Rookie Cards:** The set includes several rookie cards of promising young Athletics including Butler, Estes, Schuemann, and Harris
-- **Legends:** Cards featuring Hall of Famers Rollie Fingers, Rickey Henderson, Dave Stewart, and Mark McGwire
