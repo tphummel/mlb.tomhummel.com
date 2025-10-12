@@ -217,35 +217,20 @@ checklist:
 
 {{< checklist_stat.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
-{{- $type := .Get "type" -}}
-{{- if not $type -}}
-{{- else if eq $type "total" -}}
-  {{- $total := len $checklist -}}
-  {{- $total -}}
-{{- else if eq $type "owned" -}}
-  {{- $total := len $checklist -}}
-  {{- len (where $checklist "have_base" true) -}}
-{{- else if eq $type "rookies" -}}
-  {{- $total := len $checklist -}}
-  {{- len (where $checklist "labels" "intersect" (slice "RC")) -}}
-{{- else if eq $type "owned-percent" -}}
-  {{- $total := len $checklist -}}
-  {{- if gt $total 0 -}}
-    {{- $owned := len (where $checklist "have_base" true) -}}
-    {{- printf "%.1f" (mul (div (float $owned) (float $total)) 100.0) -}}
-  {{- else -}}
-    0.0
-  {{- end -}}
-{{- else -}}
-  0
-{{- end -}}
+{{- $total := len $checklist -}}
+{{- $owned := len (where $checklist "have_base" true) -}}
+{{- $rookies := len (where $checklist "labels" "intersect" (slice "RC")) -}}
+{{- $ownedPercent := cond (gt $total 0) (printf "%.1f" (mul (div (float $owned) (float $total)) 100.0)) "0.0" -}}
+<ul>
+  <li><strong>Total Cards:</strong> {{ $total }}</li>
+  <li><strong>Cards Owned:</strong> {{ $owned }} / {{ $total }} ({{ $ownedPercent }}%)</li>
+  <li><strong>Rookie Cards:</strong> {{ $rookies }}</li>
+</ul>
 {{< /checklist_stat.inline >}}
 
 ## Collection Stats
 
-- **Total Cards:** {{< checklist_stat.inline type="total" />}}
-- **Cards Owned:** {{< checklist_stat.inline type="owned" />}} / {{< checklist_stat.inline type="total" />}} ({{< checklist_stat.inline type="owned-percent" />}}%)
-- **Rookie Cards:** {{< checklist_stat.inline type="rookies" />}}
+{{< checklist_stat.inline />}}
 
 <!--more-->
 
