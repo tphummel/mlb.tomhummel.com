@@ -118,7 +118,7 @@ checklist:
     title: "Crushes 2nd 3-HR Game of 2024 to Make MLB History"
     shortprint: "Bonus-RTOD ODB33"
     labels: ["RC"]
-    print_run: null
+    print_run: 1216
     have_base: false
 
   - number: 635
@@ -212,49 +212,53 @@ checklist:
     print_run: null
     have_base: false
     notes: "Lou Gehrig Day Set"
+
 ---
 
-A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
+## Summary
+
+{{< checklist_stat.inline >}}
+{{- $checklist := default (slice) .Page.Params.checklist -}}
+{{- $total := len $checklist -}}
+{{- $owned := len (where $checklist "have_base" true) -}}
+{{- $rookies := len (where $checklist "labels" "intersect" (slice "RC")) -}}
+{{- $ownedPercent := cond (gt $total 0) (printf "%.1f" (mul (div (float $owned) (float $total)) 100.0)) "0.0" -}}
+<ul>
+  <li><strong>Total Cards:</strong> {{ $total }}</li>
+  <li><strong>Cards Owned:</strong> {{ $owned }} / {{ $total }} ({{ $ownedPercent }}%)</li>
+  <li><strong>Rookie Cards:</strong> {{ $rookies }}</li>
+</ul>
+{{< /checklist_stat.inline >}}
 
 <!--more-->
 
-## Collection Stats
-
-{{% .Scratch.Set "total" 0 %}}
-{{% .Scratch.Set "owned" 0 %}}
-{{% .Scratch.Set "rookies" 0 %}}
-{{% .Scratch.Set "shortprints" 0 %}}
-{{% range .Params.checklist %}}
-  {{% $.Scratch.Add "total" 1 %}}
-  {{% if .have_base %}}{{% $.Scratch.Add "owned" 1 %}}{{% end %}}
-  {{% if in .labels "RC" %}}{{% $.Scratch.Add "rookies" 1 %}}{{% end %}}
-  {{% if .shortprint %}}{{% $.Scratch.Add "shortprints" 1 %}}{{% end %}}
-{{% end %}}
-
-- **Total Cards:** {{% .Scratch.Get "total" %}}
-- **Cards Owned:** {{% .Scratch.Get "owned" %}} / {{% .Scratch.Get "total" %}} ({{% $pct := div (mul (.Scratch.Get "owned") 100.0) (.Scratch.Get "total") %}}{{% printf "%.1f" $pct %}}%)
-- **Rookie Cards:** {{% .Scratch.Get "rookies" %}}
-- **Short Prints:** {{% .Scratch.Get "shortprints" %}}
-
 ## Checklist
 
-{{% range .Params.checklist %}}
-{{% $status := cond .have_base "✓" "○" %}}
-- {{% $status %}} **#{{% .number %}}** - {{% .title %}} ({{% delimit .players ", " %}})
-  - Date: {{% .date %}}
-  {{% if .print_run %}}- Print Run: {{% .print_run %}}{{% end %}}
-  {{% if .shortprint %}}- Short Print: {{% .shortprint %}}{{% end %}}
-  {{% if .labels %}}- Labels: {{% delimit .labels ", " %}}{{% end %}}
-  {{% if .notes %}}- Notes: {{% .notes %}}{{% end %}}
-{{% end %}}
+{{< checklist.inline >}}
+{{- $checklist := default (slice) .Page.Params.checklist -}}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Owned</th>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Players</th>
+      <th scope="col">Print Run</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{- range $checklist }}
+    <tr>
+      <td>{{ cond .have_base "✓" "○" }}</td>
+      <td>{{ .number }}</td>
+      <td>{{ .date }}</td>
+      <td>{{ delimit .players ", " }}</td>
+      <td>{{ with .print_run }}{{ . }}{{ end }}</td>
+      <td>{{ with .title }}{{ . }}{{ end }}</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+{{< /checklist.inline >}}
 
-## Set Overview
-
-The 2024 Topps NOW Oakland Athletics set captures the team's final season at the Oakland Coliseum. The set features 24 cards spanning the entire season from April through September.
-
-### Notable Highlights
-
-- **Lawrence Butler's Dominance:** Butler appears on 5 cards, including two 3-HR games (making MLB history), a 20-game hit streak, and a 9-game extra-base hit streak
-- **Final Game at the Coliseum:** Three cards (#760, #761, #762) commemorate September 26th, the final game at Oakland Coliseum
-- **Rookie Cards:** The set includes several rookie cards of promising young Athletics including Butler, Estes, Schuemann, and Harris
-- **Legends:** Cards featuring Hall of Famers Rollie Fingers, Rickey Henderson, Dave Stewart, and Mark McGwire
