@@ -240,23 +240,36 @@ checklist:
 
 {{< checklist.inline >}}
 {{- $checklist := default (slice) .Page.Params.checklist -}}
-{{- range $checklist }}
-  {{- $status := cond .have_base "✓" "○" -}}
-- {{ $status }} **#{{ .number }}** - {{ .title }} ({{ delimit .players ", " }})
-  - Date: {{ .date }}
-  {{ with .print_run }}
-  - Print Run: {{ . }}
-  {{ end }}
-  {{ with .shortprint }}
-  - Short Print: {{ . }}
-  {{ end }}
-  {{ with .labels }}
-  - Labels: {{ delimit . ", " }}
-  {{ end }}
-  {{ with .notes }}
-  - Notes: {{ . }}
-  {{ end }}
-{{- end }}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Owned</th>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Title</th>
+      <th scope="col">Players</th>
+      <th scope="col">Print Run</th>
+      <th scope="col">Short Print</th>
+      <th scope="col">Labels</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{- range $checklist }}
+    <tr>
+      <td>{{ cond .have_base "✓" "○" }}</td>
+      <td>{{ .number }}</td>
+      <td>{{ .date }}</td>
+      <td>{{ with .title }}{{ . }}{{ end }}</td>
+      <td>{{ delimit .players ", " }}</td>
+      <td>{{ with .print_run }}{{ . }}{{ end }}</td>
+      <td>{{ with .shortprint }}{{ . }}{{ end }}</td>
+      <td>{{ with .labels }}{{ delimit . ", " }}{{ end }}</td>
+      <td>{{ with .notes }}{{ . }}{{ end }}</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
 {{< /checklist.inline >}}
 
 A checklist for the 2024 Topps NOW Oakland Athletics cards commemorating the team's final season in Oakland.
