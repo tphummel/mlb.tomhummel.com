@@ -1,5 +1,5 @@
 ---
-title: "2015 AFL Fall Stars Game Relics"
+title: "2016 Bowman Chrome 2015 AFL Fall Stars Game Relics"
 date: 2016-09-01
 teams: ["twins", "marlins", "phillies", "pirates", "giants", "guardians", "athletics", "mariners", "yankees", "rays", "rangers", "rockies", "braves", "blue-jays", "red-sox"]
 players: ["adam-brett-walker", "austin-dean", "andrew-knapp", "austin-meadows", "christian-arroyo", "clint-frazier", "chad-pinder", "dj-peterson", "gary-sanchez", "jake-bauers", "jurickson-profar", "kyle-freeland", "lucas-sims", "renato-nunez", "rowdy-tellez", "raimel-tapia", "sean-manaea", "sam-travis"]
@@ -184,7 +184,7 @@ checklist:
 
 <!--more-->
 
-The 2015 AFL Fall Stars Game Relics checklist in 2016 Bowman Chrome features 18 hobby-only relic cards numbered to 99, plus Orange Refractor (/25) and SuperFractor (1/1) parallels. I still need the Lucas Sims and Clint Frazier cards to finish the run.
+The 2016 Bowman Chrome 2015 AFL Fall Stars Game Relics checklist features 18 hobby-only relic cards numbered to 99, plus Orange Refractor (/25) and SuperFractor (1/1) parallels. I still need the Lucas Sims and Clint Frazier cards to finish the run.
 
 ## Checklist
 
