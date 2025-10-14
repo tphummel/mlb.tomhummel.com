@@ -1,24 +1,30 @@
 {{- with .Params.players -}}
-<div class="players">Players:
-  [{{- range $i, $player := . -}}
-    {{- if $i -}}, {{ end -}}
-    <span><a href="{{ "/players/" | relLangURL }}{{ . | urlize }}">{{ $player | humanize | title }}</a></span>
-  {{- end -}}]
+<div class="meta-line players">
+  <span class="meta-label">Players</span>
+  <span class="meta-value">
+    {{- range $player := . -}}
+      <span><a href="{{ "/players/" | relLangURL }}{{ . | urlize }}">{{ $player | humanize | title }}</a></span>
+    {{- end -}}
+  </span>
 </div>
 {{- end -}}
 {{- with .Params.teams -}}
-<div class="teams">Teams:
-  [{{- range $i, $team := . -}}
-    {{- if $i -}}, {{ end -}}
-    <span><a href="{{ "/teams/" | relLangURL }}{{ . | urlize }}">{{ $team | humanize | title }}</a></span>
-  {{- end -}}]
+<div class="meta-line teams">
+  <span class="meta-label">Teams</span>
+  <span class="meta-value">
+    {{- range $team := . -}}
+      <span><a href="{{ "/teams/" | relLangURL }}{{ . | urlize }}">{{ $team | humanize | title }}</a></span>
+    {{- end -}}
+  </span>
 </div>
 {{- end -}}
 {{- with .Params.tags -}}
-<div class="tags">Tags: 
-  [{{- range $i, $tag := . -}}
-    {{- if $i -}}, {{ end -}}
-    <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ $tag }}</a></span>
-  {{- end -}}]
+<div class="meta-line tags">
+  <span class="meta-label">Tags</span>
+  <span class="meta-value">
+    {{- range $tag := . -}}
+      <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ $tag }}</a></span>
+    {{- end -}}
+  </span>
 </div>
 {{- end -}}
