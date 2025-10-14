@@ -1,4 +1,4 @@
-<div>
+<nav class="breadcrumb" aria-label="Breadcrumb">
   {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
   {{- $.Scratch.Add "breadcrumb-html" .Site.BaseURL -}}
   <span><a href='{{ $.Scratch.Get "breadcrumb-html" }}'>home</a></span>
@@ -9,4 +9,4 @@
       {{- $.Scratch.Add "breadcrumb-html" "/" -}}
     {{- end -}}
   {{- end }}
-</div>
+</nav>
