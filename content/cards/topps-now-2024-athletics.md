@@ -2,7 +2,7 @@
 title: "2024 Topps NOW - Oakland Athletics"
 date: 2024-09-26
 teams: ["athletics"]
-players: ["shea-langeliers", "lawrence-butler", "max-schuemann", "brett-harris", "brent-rooker", "mark-mcgwire", "joey-estes", "jj-bleday", "rollie-fingers", "mason-miller", "jacob-wilson", "brady-basso", "zack-gelof", "dave-stewart", "rickey-henderson"]
+players: ["shea-langeliers", "lawrence-butler", "max-schuemann", "brett-harris", "brent-rooker", "mark-mcgwire", "joey-estes", "jj-bleday", "rollie-fingers", "mason-miller", "jacob-wilson", "brady-basso", "zack-gelof", "dave-stewart", "rickey-henderson", "jose-canseco"]
 checklist:
   - number: 57
     date: 2024-04-09
@@ -110,6 +110,15 @@ checklist:
     shortprint: null
     labels: ["Call Up"]
     print_run: 2239
+    have_base: false
+
+  - number: 564
+    date: 2024-08-17
+    players: ["Jose Canseco"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: 1465
     have_base: false
 
   - number: 611
