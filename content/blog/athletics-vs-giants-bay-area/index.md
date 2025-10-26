@@ -37,9 +37,83 @@ The Oakland Athletics (1968-2024) vs. the San Francisco Giants (1958-2024)
 <!--more-->
 
 {{< table.inline >}}
-{{ with .Page.Resources.Get "head-to-head.png" }}
-  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-{{ end }}
+{{- $data := .Params.data -}}
+{{- $ath := $data.athletics -}}
+{{- $sf := $data.giants -}}
+<div class="sr_share_wrap" style="overflow:auto">
+  <table class="sr_share" style="border-collapse: collapse; font-size:.83em; border: 1px solid #aaa; min-width: 22rem;">
+    <caption>Oakland Athletics vs. San Francisco Giants (Bay Area era)</caption>
+    <colgroup>
+      <col>
+      <col>
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col" style="background-color: #ddd; border: 1px solid #aaa; padding: 4px; text-align: left;">Category</th>
+        <th scope="col" style="background-color: #ddd; border: 1px solid #aaa; padding: 4px; text-align: right;">Athletics</th>
+        <th scope="col" style="background-color: #ddd; border: 1px solid #aaa; padding: 4px; text-align: right;">Giants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Regular season head-to-head</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.reg_season_h2h }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.reg_season_h2h }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Postseason head-to-head</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.postseason_h2h }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.postseason_h2h }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Games</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.games }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.games }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Wins</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.wins }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.wins }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Losses</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.losses }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.losses }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Win %</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.win_pct }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.win_pct }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Runs per game</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.runs_per_game }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.runs_per_game }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Runs allowed per game</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.runs_allowed_per_game }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.runs_allowed_per_game }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Postseason appearances</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.posteason_appearances }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.posteason_appearances }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">World Series appearances</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.world_series_appearances }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.world_series_appearances }}</td>
+      </tr>
+      <tr>
+        <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">World Series championships</th>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.world_series_championships }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.world_series_championships }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 {{< /table.inline >}}
 
 [source](https://stathead.com/tiny/3p1nC)
