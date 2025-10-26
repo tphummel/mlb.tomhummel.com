@@ -1,5 +1,5 @@
 ---
-title: "Oakland Athletics vs. San Franisco Giants"
+title: "Oakland Athletics vs. San Francisco Giants"
 date: 2024-10-13
 tags: []
 players: []
@@ -15,7 +15,7 @@ data:
     win_pct: 0.513
     runs_per_game: 4.5
     runs_allowed_per_game: 4.4
-    posteason_appearances: 21
+    postseason_appearances: 21
     world_series_appearances: 6
     world_series_championships: 4
   giants: 
@@ -27,7 +27,7 @@ data:
     win_pct: .516
     runs_per_game: 4.4
     runs_allowed_per_game: 4.2
-    posteason_appearances: 13
+    postseason_appearances: 13
     world_series_appearances: 6
     world_series_championships: 3
 
@@ -37,7 +37,7 @@ The Oakland Athletics (1968-2024) vs. the San Francisco Giants (1958-2024)
 <!--more-->
 
 {{< table.inline >}}
-{{- $data := .Params.data -}}
+{{- $data := .Page.Params.data -}}
 {{- $ath := $data.athletics -}}
 {{- $sf := $data.giants -}}
 <div class="sr_share_wrap" style="overflow:auto">
@@ -98,8 +98,8 @@ The Oakland Athletics (1968-2024) vs. the San Francisco Giants (1958-2024)
       </tr>
       <tr>
         <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">Postseason appearances</th>
-        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.posteason_appearances }}</td>
-        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.posteason_appearances }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $ath.postseason_appearances }}</td>
+        <td style="border: 1px solid #aaa; padding: 4px; text-align: right;">{{ $sf.postseason_appearances }}</td>
       </tr>
       <tr>
         <th scope="row" style="border: 1px solid #aaa; padding: 4px; text-align: left;">World Series appearances</th>
