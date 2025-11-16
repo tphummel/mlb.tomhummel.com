@@ -1,5 +1,5 @@
 ---
-title: "2025 Topps NOW - Oakland Athletics"
+title: "2025 Topps NOW - Athletics"
 date: 2025-01-01
 teams: ["athletics"]
 players: ["nick-kurtz", "shea-langeliers", "colby-thomas", "carlos-cortez", "lawrence-butler", "denzel-clarke", "tyler-soderstrom", "logan-davidson", "willie-maciver", "jacob-wilson", "gunnar-hoglund", "luis-urias", "max-muncy"]
