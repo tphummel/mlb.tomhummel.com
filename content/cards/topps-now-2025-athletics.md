@@ -2,7 +2,7 @@
 title: "2025 Topps NOW - Oakland Athletics"
 date: 2025-01-01
 teams: ["athletics"]
-players: ["nick-kurtz", "shea-langeliers", "colby-thomas", "carlos-cortez", "lawrence-butler", "denzel-clarke", "tyler-soderstrom", "davidson", "mciver", "jacob-wilson", "gunnar-hoglund", "luis-urias", "max-muncy"]
+players: ["nick-kurtz", "shea-langeliers", "colby-thomas", "carlos-cortez", "lawrence-butler", "denzel-clarke", "tyler-soderstrom", "logan-davidson", "willie-maciver", "jacob-wilson", "gunnar-hoglund", "luis-urias", "max-muncy"]
 checklist:
   - number: 787
     date: null
@@ -168,7 +168,7 @@ checklist:
 
   - number: 217
     date: null
-    players: ["Davidson", "McIver"]
+    players: ["Logan Davidson", "Willie MacIver"]
     title: null
     shortprint: null
     labels: []
