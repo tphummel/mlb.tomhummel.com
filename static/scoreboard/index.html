@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MLB Scoreboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Live MLB scoreboard" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b1020;
+        --card: #141b2d;
+        --text: #e9edf7;
+        --muted: #a5afc3;
+        --accent: #4da3ff;
+        --border: #27314b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+      h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
+      .meta { color: var(--muted); margin-bottom: 1rem; }
+      .toolbar { display: flex; gap: .5rem; align-items: center; margin-bottom: 1rem; }
+      input[type="date"], button {
+        background: var(--card); color: var(--text); border: 1px solid var(--border);
+        border-radius: .5rem; padding: .5rem .6rem;
+      }
+      button { cursor: pointer; }
+      .games { display: grid; gap: .75rem; }
+      .game {
+        border: 1px solid var(--border); border-radius: .6rem; background: var(--card);
+        padding: .8rem;
+      }
+      .line { display: flex; justify-content: space-between; gap: .5rem; }
+      .team { font-weight: 600; }
+      .score { font-variant-numeric: tabular-nums; font-weight: 700; }
+      .status { color: var(--muted); margin-top: .35rem; font-size: .92rem; }
+      a { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>MLB Scoreboard</h1>
+      <div class="meta" id="meta">Loading games…</div>
+      <div class="toolbar">
+        <label for="date">Date:</label>
+        <input type="date" id="date" />
+        <button id="reload" type="button">Reload</button>
+      </div>
+      <section class="games" id="games"></section>
+    </main>
+
+    <script>
+      const dateInput = document.getElementById('date');
+      const reloadBtn = document.getElementById('reload');
+      const gamesEl = document.getElementById('games');
+      const metaEl = document.getElementById('meta');
+
+      function asIsoDate(date) {
+        const y = date.getUTCFullYear();
+        const m = String(date.getUTCMonth() + 1).padStart(2, '0');
+        const d = String(date.getUTCDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text ?? '';
+        return div.innerHTML;
+      }
+
+      async function loadGames() {
+        const date = dateInput.value || asIsoDate(new Date());
+        metaEl.textContent = `Loading games for ${date}…`;
+        gamesEl.innerHTML = '';
+
+        try {
+          const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&hydrate=team,linescore,flags,decisions,probablePitcher,venue,game(content(summary,media(epg)))&date=${encodeURIComponent(date)}`;
+          const res = await fetch(url);
+          if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+          const data = await res.json();
+          const games = data?.dates?.[0]?.games || [];
+
+          metaEl.textContent = `${games.length} game${games.length === 1 ? '' : 's'} for ${date}`;
+
+          if (!games.length) {
+            gamesEl.innerHTML = '<div class="game">No games scheduled.</div>';
+            return;
+          }
+
+          gamesEl.innerHTML = games.map((g) => {
+            const away = g.teams?.away;
+            const home = g.teams?.home;
+            const status = g.status?.detailedState || g.status?.abstractGameState || 'Scheduled';
+            const venue = g.venue?.name ? ` · ${escapeHtml(g.venue.name)}` : '';
+            return `
+              <article class="game">
+                <div class="line">
+                  <div class="team">${escapeHtml(away?.team?.name || 'Away')}</div>
+                  <div class="score">${away?.score ?? '-'}</div>
+                </div>
+                <div class="line">
+                  <div class="team">${escapeHtml(home?.team?.name || 'Home')}</div>
+                  <div class="score">${home?.score ?? '-'}</div>
+                </div>
+                <div class="status">${escapeHtml(status)}${venue}</div>
+              </article>
+            `;
+          }).join('');
+        } catch (err) {
+          metaEl.textContent = 'Unable to load games right now.';
+          gamesEl.innerHTML = `<div class="game">Error: ${escapeHtml(err.message)}. Try again later.</div>`;
+        }
+      }
+
+      dateInput.value = asIsoDate(new Date());
+      reloadBtn.addEventListener('click', loadGames);
+      dateInput.addEventListener('change', loadGames);
+      loadGames();
+    </script>
+  </body>
+</html>
