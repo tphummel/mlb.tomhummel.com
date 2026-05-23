@@ -25,12 +25,16 @@
       main { max-width: 960px; margin: 0 auto; padding: 1rem; }
       h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
       .meta { color: var(--muted); margin-bottom: 1rem; }
-      .toolbar { display: flex; gap: .5rem; align-items: center; margin-bottom: 1rem; }
+      .toolbar { display: flex; gap: .5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
       input[type="date"], button {
         background: var(--card); color: var(--text); border: 1px solid var(--border);
         border-radius: .5rem; padding: .5rem .6rem;
       }
       button { cursor: pointer; }
+      .tabs { display: inline-flex; border: 1px solid var(--border); border-radius: .5rem; overflow: hidden; }
+      .tab-btn { border: 0; border-right: 1px solid var(--border); border-radius: 0; }
+      .tab-btn:last-child { border-right: 0; }
+      .tab-btn.active { background: var(--accent); color: #09101f; font-weight: 700; }
       .games { display: grid; gap: .75rem; }
       .game {
         border: 1px solid var(--border); border-radius: .6rem; background: var(--card);
@@ -40,6 +44,13 @@
       .team { font-weight: 600; }
       .score { font-variant-numeric: tabular-nums; font-weight: 700; }
       .status { color: var(--muted); margin-top: .35rem; font-size: .92rem; }
+      .wpa-wrap { margin-top: .6rem; }
+      .wpa-title { color: var(--muted); font-size: .85rem; margin-bottom: .3rem; }
+      .wpa-svg { width: 100%; height: 50px; display: block; }
+      .wpa-bg { fill: #0e1527; stroke: var(--border); }
+      .wpa-mid { stroke: #3a4866; stroke-width: 1; stroke-dasharray: 3 3; }
+      .wpa-line { fill: none; stroke: #65b3ff; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+      .wpa-placeholder { color: var(--muted); font-size: .85rem; }
       a { color: var(--accent); }
     </style>
   </head>
@@ -51,6 +62,10 @@
         <label for="date">Date:</label>
         <input type="date" id="date" />
         <button id="reload" type="button">Reload</button>
+        <div class="tabs" role="tablist" aria-label="Scoreboard tabs">
+          <button id="tab-scoreboard" class="tab-btn active" type="button" data-tab="scoreboard">Scoreboard</button>
+          <button id="tab-wpa" class="tab-btn" type="button" data-tab="wpa">WPA</button>
+        </div>
       </div>
       <section class="games" id="games"></section>
     </main>
@@ -60,6 +75,9 @@
       const reloadBtn = document.getElementById('reload');
       const gamesEl = document.getElementById('games');
       const metaEl = document.getElementById('meta');
+      const tabButtons = [...document.querySelectorAll('.tab-btn')];
+      let currentTab = 'scoreboard';
+      let lastGames = [];
 
       function asIsoDate(date) {
         const y = date.getUTCFullYear();
@@ -74,25 +92,88 @@
         return div.innerHTML;
       }
 
-      async function loadGames() {
-        const date = dateInput.value || asIsoDate(new Date());
-        metaEl.textContent = `Loading games for ${date}…`;
-        gamesEl.innerHTML = '';
+      function isGameStarted(game) {
+        const coded = game?.status?.codedGameState;
+        return coded && !['S', 'P'].includes(coded);
+      }
 
-        try {
-          const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&hydrate=team,linescore,flags,decisions,probablePitcher,venue,game(content(summary,media(epg)))&date=${encodeURIComponent(date)}`;
-          const res = await fetch(url);
-          if (!res.ok) throw new Error(`Request failed: ${res.status}`);
-          const data = await res.json();
-          const games = data?.dates?.[0]?.games || [];
+      function isGameFinal(game) {
+        return game?.status?.abstractGameState === 'Final';
+      }
 
-          metaEl.textContent = `${games.length} game${games.length === 1 ? '' : 's'} for ${date}`;
+      function gameProgressRatio(game) {
+        if (isGameFinal(game)) return 1;
+        const linescore = game?.linescore;
+        const inning = Number(linescore?.currentInning || 1);
+        const outs = Number(linescore?.outs || 0);
+        const inningHalf = linescore?.inningHalf;
+        let outsCompleted = (inning - 1) * 6;
+        if (inningHalf === 'Bottom') outsCompleted += 3;
+        outsCompleted += outs;
+        return Math.max(0, Math.min(1, outsCompleted / 54));
+      }
 
-          if (!games.length) {
-            gamesEl.innerHTML = '<div class="game">No games scheduled.</div>';
-            return;
+      function pointPath(points, width, height) {
+        if (!points.length) return '';
+        return points.map((p, i) => `${i ? 'L' : 'M'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+      }
+
+      async function fetchWpaPoints(gamePk) {
+        const endpoints = [
+          `https://statsapi.mlb.com/api/v1/game/${gamePk}/winProbability`,
+          `https://statsapi.mlb.com/api/v1/game/${gamePk}/contextMetrics`
+        ];
+
+        for (const endpoint of endpoints) {
+          try {
+            const res = await fetch(endpoint);
+            if (!res.ok) continue;
+            const data = await res.json();
+            const raw = data?.winProbability || data?.homeTeamWinProbability || data?.awayTeamWinProbability || [];
+            if (!Array.isArray(raw) || !raw.length) continue;
+            const values = raw
+              .map((v) => (typeof v === 'number' ? v : Number(v?.homeWinProbability ?? v?.value ?? v?.winProbability ?? v?.homeTeamWinProbability)))
+              .filter((n) => Number.isFinite(n))
+              .map((n) => Math.max(0, Math.min(1, n)));
+            if (values.length) return values;
+          } catch (_) {
+            // fall through to next endpoint
           }
+        }
+        return null;
+      }
 
+      function renderWpaSparkline(game, values) {
+        if (!isGameStarted(game)) {
+          return '<div class="wpa-placeholder">WPA chart available once game starts.</div>';
+        }
+        if (!values || !values.length) {
+          return '<div class="wpa-placeholder">WPA data unavailable.</div>';
+        }
+
+        const width = 500;
+        const height = 50;
+        const progress = gameProgressRatio(game);
+        const xMax = Math.max(10, width * progress);
+        const points = values.map((value, index) => {
+          const t = values.length === 1 ? 0 : index / (values.length - 1);
+          return {
+            x: t * xMax,
+            y: (1 - value) * (height - 4) + 2
+          };
+        });
+
+        return `
+          <svg class="wpa-svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" role="img" aria-label="Home team win probability sparkline">
+            <rect class="wpa-bg" x="0" y="0" width="${width}" height="${height}" rx="4" />
+            <line class="wpa-mid" x1="0" y1="${height / 2}" x2="${width}" y2="${height / 2}" />
+            <path class="wpa-line" d="${pointPath(points, width, height)}" />
+          </svg>
+        `;
+      }
+
+      async function renderGames(games) {
+        if (currentTab === 'scoreboard') {
           gamesEl.innerHTML = games.map((g) => {
             const away = g.teams?.away;
             const home = g.teams?.home;
@@ -112,11 +193,68 @@
               </article>
             `;
           }).join('');
+          return;
+        }
+
+        gamesEl.innerHTML = '<div class="game">Loading WPA charts…</div>';
+        const cards = await Promise.all(games.map(async (g) => {
+          const away = g.teams?.away;
+          const home = g.teams?.home;
+          const status = g.status?.detailedState || g.status?.abstractGameState || 'Scheduled';
+          const values = isGameStarted(g) ? await fetchWpaPoints(g.gamePk) : null;
+          return `
+            <article class="game">
+              <div class="line">
+                <div class="team">${escapeHtml(away?.team?.name || 'Away')} @ ${escapeHtml(home?.team?.name || 'Home')}</div>
+                <div class="score">${away?.score ?? '-'}-${home?.score ?? '-'}</div>
+              </div>
+              <div class="status">${escapeHtml(status)}</div>
+              <div class="wpa-wrap">
+                <div class="wpa-title">Home Win Probability</div>
+                ${renderWpaSparkline(g, values)}
+              </div>
+            </article>
+          `;
+        }));
+        gamesEl.innerHTML = cards.join('');
+      }
+
+      async function loadGames() {
+        const date = dateInput.value || asIsoDate(new Date());
+        metaEl.textContent = `Loading games for ${date}…`;
+        gamesEl.innerHTML = '';
+
+        try {
+          const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&hydrate=team,linescore,flags,decisions,probablePitcher,venue,game(content(summary,media(epg)))&date=${encodeURIComponent(date)}`;
+          const res = await fetch(url);
+          if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+          const data = await res.json();
+          const games = data?.dates?.[0]?.games || [];
+          lastGames = games;
+
+          metaEl.textContent = `${games.length} game${games.length === 1 ? '' : 's'} for ${date}`;
+
+          if (!games.length) {
+            gamesEl.innerHTML = '<div class="game">No games scheduled.</div>';
+            return;
+          }
+
+          await renderGames(games);
         } catch (err) {
           metaEl.textContent = 'Unable to load games right now.';
           gamesEl.innerHTML = `<div class="game">Error: ${escapeHtml(err.message)}. Try again later.</div>`;
         }
       }
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          currentTab = btn.dataset.tab;
+          tabButtons.forEach((other) => other.classList.toggle('active', other === btn));
+          if (lastGames.length) {
+            await renderGames(lastGames);
+          }
+        });
+      });
 
       dateInput.value = asIsoDate(new Date());
       reloadBtn.addEventListener('click', loadGames);
