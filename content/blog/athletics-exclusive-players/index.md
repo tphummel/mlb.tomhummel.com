@@ -70,4 +70,4 @@ Union of top by IP and top by WAR among retired players with exclusively Athleti
 
 ---
 
-[Source: Baseball Reference — players who played exclusively for the Athletics franchise](https://www.baseball-reference.com/friv/players-who-played-for-multiple-teams-franchises.fcgi?level=franch&t1=OAK&t2=OAK&t3=--&t4=--&exclusively=1)
+[source](https://www.baseball-reference.com/friv/players-who-played-for-multiple-teams-franchises.fcgi?level=franch&t1=OAK&t2=OAK&t3=--&t4=--&exclusively=1)
