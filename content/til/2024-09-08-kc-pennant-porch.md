@@ -16,3 +16,5 @@ In April 1964, Athletics owner Charlie Finley built the "K.C. Pennant Porch" in 
 > The A's owner then ordered a white line to be painted on the field at the original "Pennant Porch" distance, and told the public address announcer to announce "That would have been a home run in Yankee Stadium" whenever a fly ball was hit past that line but short of the fence. The practice was quickly abandoned after it turned out that the announcer was calling more "would-be" home runs for the opposition than the A's.
 >
 > — [Wikipedia](https://en.m.wikipedia.org/wiki/Charlie_Finley)
+
+This was some good Yankee trolling that would still play well now with their short porch. I wish this one had a more satisfying result. Stadium dimensions quirks are part of the game and now covered by statcast “how many parks would it have been a homer in?” stat. Prescient.
