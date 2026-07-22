@@ -5,7 +5,7 @@ players: ["mike-norris","george-brett"]
 teams: ["athletics","royals"]
 ---
 
-Mike Norris won 20 games in 1980 for the A's, throwing 284.1 innings and 24 complete games. He finished second in the AL Cy Young race to Steve Stone of the Baltimore Orioles and received MVP votes that year.
+Mike Norris won 20 games in 1980 for the A's, throwing 284.1 innings and 24 complete games, and finished second in the AL Cy Young race to Steve Stone of the Baltimore Orioles while receiving MVP votes that year.
 
 <!--more-->
 
