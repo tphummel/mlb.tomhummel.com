@@ -20,9 +20,9 @@
   Newest Blogs:
   <ul>
   {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
-    <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .Permalink }}{{ end }}">More...</a></li>
+    <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .RelPermalink }}{{ end }}">More...</a></li>
   </ul>
 </div>
 
@@ -30,9 +30,9 @@
   Newest TILs:
   <ul>
   {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "til") }}
-    <li>{{ .Date.Format "2006-01-02" }} <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li>{{ .Date.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
-    <li><a href="{{ with .Site.GetPage "section" "til" }}{{ .Permalink }}{{ end }}">More...</a></li>
+    <li><a href="{{ with .Site.GetPage "section" "til" }}{{ .RelPermalink }}{{ end }}">More...</a></li>
   </ul>
 </div>
 
@@ -40,9 +40,9 @@
   Newest Cards:
   <ul>
   {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "cards") }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
-    <li><a href="{{ with .Site.GetPage "section" "cards" }}{{ .Permalink }}{{ end }}">More...</a></li>
+    <li><a href="{{ with .Site.GetPage "section" "cards" }}{{ .RelPermalink }}{{ end }}">More...</a></li>
   </ul>
 </div>
 
@@ -80,7 +80,7 @@
   <small>
     <a href="index.xml">RSS</a> |
     <a href="{{ $.Site.Params.github_repo }}">GitHub</a> |
-    {{ with .Site.GetPage "page" "notices.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+    {{ with .Site.GetPage "page" "notices.md" }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }} |
     <a href="https://tomhummel.com">tomhummel.com</a>
   </small>
 </p>
