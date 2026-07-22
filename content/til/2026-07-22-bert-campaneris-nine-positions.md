@@ -9,12 +9,6 @@ On September 8, 1965, Bert Campaneris became the first player in AL/NL history t
 
 <!--more-->
 
-- Angels manager Bill Rigney called the stunt "bush" before the game.
-- Campaneris dropped a routine fly ball in the sixth inning, allowing an Angels run to score.
-- His pitching appearance in the eighth inning went off the rails, allowing an RBI single set up by two straight walks.
-- He caught the ninth inning. The Angels' Ed Kirkpatrick singled, stole second, and reached third with two outs, then broke for home on a pitch in the dirt, colliding hard with Campaneris at the plate.
-- The game went to extra innings, but Campaneris didn't finish it — he was sent to St. Luke's Hospital with a left shoulder injury from the collision.
-
 > Bert Campaneris, A's
 > Sept. 8, 1965, vs. Angels
 > The most accomplished player on this list, Campaneris, a six-time All-Star, became the first player in AL/NL history to play all nine positions in an eventful game.
