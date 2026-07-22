@@ -5,7 +5,7 @@ players: ["randy-winn","mark-derosa"]
 teams: ["giants","braves","cardinals"]
 ---
 
-Today in Immaculate Grid, I had two really nice picks: Mark DeRosa for Giants and Braves. Randy Winn for Giants and Cardinals.
+Today in Immaculate Grid, I had two really nice picks: Mark DeRosa for Giants and Braves, and Randy Winn for Giants and Cardinals.
 
 <!--more-->
 

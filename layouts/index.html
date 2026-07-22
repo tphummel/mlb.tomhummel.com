@@ -14,17 +14,12 @@
 <h1>{{ $.Site.Params.Title }}</h1>
 
 <p>{{ $.Site.Params.site_description }} </p>
-<p>Total Blog Posts: {{ len (where $.Site.RegularPages "Section" "blog") }}</p>
 
-<div>
-  Newest Blogs:
-  <ul>
-  {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-    <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .RelPermalink }}{{ end }}">More...</a></li>
-  </ul>
-</div>
+<p>
+  {{ with .Site.GetPage "section" "til" }}<a href="{{ .RelPermalink }}">TILs</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "til") }}</sup> |
+  {{ with .Site.GetPage "section" "blog" }}<a href="{{ .RelPermalink }}">Blog Posts</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "blog") }}</sup> |
+  {{ with .Site.GetPage "section" "cards" }}<a href="{{ .RelPermalink }}">Cards</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "cards") }}</sup>
+</p>
 
 <div>
   Newest TILs:
@@ -33,6 +28,16 @@
     <li>{{ .Date.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
     <li><a href="{{ with .Site.GetPage "section" "til" }}{{ .RelPermalink }}{{ end }}">More...</a></li>
+  </ul>
+</div>
+
+<div>
+  Newest Blogs:
+  <ul>
+  {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Section" "blog") }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+    <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .RelPermalink }}{{ end }}">More...</a></li>
   </ul>
 </div>
 
