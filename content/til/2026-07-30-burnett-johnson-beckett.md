@@ -9,28 +9,34 @@ A.J. Burnett, Josh Johnson, and Josh Beckett all came up through the Marlins org
 
 <!--more-->
 
-| Stat | A.J. Burnett | Josh Johnson | Josh Beckett |
-| --- | --- | --- | --- |
-| WAR | 28.8 | 24.3 | **35.7** |
-| G | **435** | 170 | 335 |
-| GS | **430** | 160 | 332 |
-| IP | **2731.1** | 998.0 | 2051.0 |
-| W-L | 164-157 | 58-45 | **138-106** |
-| ERA | 3.99 | **3.40** | 3.88 |
-| ERA+ | 104 | **124** | 111 |
-| SO | **2513** | 915 | 1901 |
-| K% | 21.5 | 21.9 | **22.2** |
-| BB | 1100 | **338** | 629 |
-| BB% | 9.4 | 8.1 | **7.3** |
-
-Awards & honors:
-
-| | A.J. Burnett | Josh Johnson | Josh Beckett |
-| --- | --- | --- | --- |
-| Championships | 1 | | **2** |
-| All-Star | 1 | 2 | **3** |
-| ERA Title | | **1** | |
-| WS MVP | | | **1** |
-| LCS MVP | | | **1** |
-
-Source: [Baseball-Reference Stathead](https://www.sports-reference.com/stathead/tiny/27xgz).
+{{< table.inline >}}
+<div class="sr_share_wrap" style="overflow:auto">
+<table class="sr_share" style="border-collapse: collapse; font-size:.83em; border: 1px solid #aaa; overflow:auto;">
+<colgroup><col><col><col><col></colgroup>
+<thead>
+<tr><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px;"></th><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px; text-align:center;">A.J. Burnett</th><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px; text-align:center;">Josh Johnson</th><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px; text-align:center;">Josh Beckett</th></tr>
+</thead>
+<tbody>
+<tr><td colspan="4" style="background-color: #eee; border: 1px solid #aaa; padding: 3px; text-align:center; font-weight:bold; color:#900;">Overall Stats</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">WAR</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">28.8</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">24.3</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">35.7</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">G</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">435</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">170</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">335</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">GS</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">430</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">160</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">332</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">IP</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">2731.1</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">998.0</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">2051.0</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">W-L</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">164-157</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">58-45</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">138-106</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">ERA</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">3.99</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">3.40</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">3.88</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">ERA+</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">104</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">124</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">111</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">SO</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">2513</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">915</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">1901</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">K%</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">21.5</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">21.9</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">22.2</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">BB</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">1100</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">338</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">629</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">BB%</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">9.4</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">8.1</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">7.3</td></tr>
+<tr><td colspan="4" style="background-color: #eee; border: 1px solid #aaa; padding: 3px; text-align:center; font-weight:bold; color:#900;">Awards &amp; Honors</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">Championships</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">1</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">2</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">All-Star</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">1</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;">2</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">3</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">ERA Title</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">1</td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">WS MVP</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">1</td></tr>
+<tr><th scope="row" style="border: 1px solid #ccc; padding: 2px 4px; white-space: nowrap;">LCS MVP</th><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center;"></td><td style="border: 1px solid #ccc; padding: 2px 4px; text-align:center; background-color:#e2efda; font-weight:bold;">1</td></tr>
+</tbody>
+</table>
+<div id="credit_burnett_johnson_beckett" class="sr_share" style="font-size: 0.83em;">Provided by <a href="https://www.sports-reference.com/sharing.html">Baseball-Reference.com</a>: <a href="https://www.sports-reference.com/stathead/tiny/27xgz">View Original Table</a></div>
+</div>
+{{< /table.inline >}}
