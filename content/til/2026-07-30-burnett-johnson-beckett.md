@@ -14,7 +14,7 @@ A.J. Burnett, Josh Johnson, and Josh Beckett all came up through the Marlins org
 <table class="sr_share" style="border-collapse: collapse; font-size:.83em; border: 1px solid #aaa; overflow:auto;">
 <colgroup><col><col><col><col></colgroup>
 <thead>
-<tr><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px;"></th><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px; text-align:center;">A.J. Burnett</th><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px; text-align:center;">Josh Johnson</th><th style="background-color: #ddd; border: 1px solid #aaa; padding: 2px; text-align:center;">Josh Beckett</th></tr>
+<tr><th style="background-color: #ddd; color: #111; border: 1px solid #aaa; padding: 2px;"></th><th style="background-color: #ddd; color: #111; border: 1px solid #aaa; padding: 2px; text-align:center;">A.J. Burnett</th><th style="background-color: #ddd; color: #111; border: 1px solid #aaa; padding: 2px; text-align:center;">Josh Johnson</th><th style="background-color: #ddd; color: #111; border: 1px solid #aaa; padding: 2px; text-align:center;">Josh Beckett</th></tr>
 </thead>
 <tbody>
 <tr><td colspan="4" style="background-color: #eee; border: 1px solid #aaa; padding: 3px; text-align:center; font-weight:bold; color:#900;">Overall Stats</td></tr>
