@@ -2,7 +2,7 @@
 title: "2026 Topps NOW - Athletics"
 date: 2026-01-01
 teams: ["athletics"]
-players: ["nick-kurtz", "jacob-wilson", "tyler-soderstrom", "lawrence-butler", "henry-bolte", "tommy-white", "carlos-cortez", "jonah-heim", "gage-jump", "jeffrey-springs", "brent-rooker", "mark-mcgwire", "joshua-kuroda-grauer"]
+players: ["nick-kurtz", "jacob-wilson", "tyler-soderstrom", "lawrence-butler", "henry-bolte", "tommy-white", "carlos-cortez", "jonah-heim", "gage-jump", "jeffrey-springs", "brent-rooker", "mark-mcgwire", "joshua-kuroda-grauer", "luis-morales", "shea-langeliers", "colby-thomas", "max-muncy", "jeff-mcneil"]
 checklist:
   - number: 54
     date: null
@@ -185,15 +185,105 @@ checklist:
     print_run: null
     have_base: true
 
-  - number: "RTOD26"
+  - number: "RTOD26-1"
     date: null
-    players: ["Oakland Athletics"]
+    players: ["Nick Kurtz"]
     title: null
     shortprint: null
     labels: []
     print_run: null
     have_base: false
-    notes: "Road to Opening Day - 11 Card Team Set"
+    notes: "Road to Opening Day - 10 Card Team Set - parallel subject"
+
+  - number: "RTOD26-2"
+    date: null
+    players: ["Luis Morales"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
+
+  - number: "RTOD26-3"
+    date: null
+    players: ["Lawrence Butler"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
+
+  - number: "RTOD26-4"
+    date: null
+    players: ["Shea Langeliers"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
+
+  - number: "RTOD26-5"
+    date: null
+    players: ["Colby Thomas"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set - parallel subject"
+
+  - number: "RTOD26-6"
+    date: null
+    players: ["Max Muncy"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
+
+  - number: "RTOD26-7"
+    date: null
+    players: ["Brent Rooker"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
+
+  - number: "RTOD26-8"
+    date: null
+    players: ["Jacob Wilson"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set - parallel subject"
+
+  - number: "RTOD26-9"
+    date: null
+    players: ["Tyler Soderstrom"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
+
+  - number: "RTOD26-10"
+    date: null
+    players: ["Jeff McNeil"]
+    title: null
+    shortprint: null
+    labels: []
+    print_run: null
+    have_base: false
+    notes: "Road to Opening Day - 10 Card Team Set"
 
 ---
 
