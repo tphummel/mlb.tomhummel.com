@@ -2,7 +2,7 @@
 title: "2026 Topps NOW - Athletics"
 date: 2026-01-01
 teams: ["athletics"]
-players: ["nick-kurtz", "jacob-wilson", "tyler-soderstrom", "lawrence-butler", "henry-bolte", "tommy-white", "carlos-cortez", "jonah-heim", "gage-jump", "jeffrey-springs", "brent-rooker", "mark-mcgwire"]
+players: ["nick-kurtz", "jacob-wilson", "tyler-soderstrom", "lawrence-butler", "henry-bolte", "tommy-white", "carlos-cortez", "jonah-heim", "gage-jump", "jeffrey-springs", "brent-rooker", "mark-mcgwire", "joshua-kuroda-grauer"]
 checklist:
   - number: 54
     date: null
@@ -133,13 +133,12 @@ checklist:
 
   - number: 396
     date: null
-    players: ["JKG"]
+    players: ["Joshua Kuroda-Grauer"]
     title: null
     shortprint: null
     labels: []
     print_run: 989
     have_base: false
-    notes: "Player unconfirmed - shorthand 'jkg' from checklist notes"
 
   - number: 413
     date: null
