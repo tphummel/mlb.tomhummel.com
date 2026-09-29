@@ -83,7 +83,7 @@ checklist:
     shortprint: null
     labels: []
     print_run: 1768
-    have_base: false
+    have_base: true
 
   - number: 282
     date: null
