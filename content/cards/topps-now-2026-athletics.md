@@ -177,7 +177,7 @@ checklist:
     have_base: false
 
   - number: 671
-    date: null
+    date: 2026-09-13
     players: ["Lawrence Butler"]
     title: "2-Homer Game and Walk-Off"
     shortprint: null
