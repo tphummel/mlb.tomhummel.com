@@ -184,6 +184,7 @@ checklist:
     labels: []
     print_run: null
     have_base: true
+    acquired: 2026-10-02
 
   - number: "RTOD26-1"
     date: null
