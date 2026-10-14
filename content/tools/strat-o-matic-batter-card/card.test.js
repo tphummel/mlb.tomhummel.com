@@ -1,7 +1,7 @@
-// Run with: node --test test/
+// Run with: node --test content/tools/strat-o-matic-batter-card/card.test.js
 const test = require('node:test');
 const assert = require('node:assert');
-const SomCard = require('../static/strat-o-matic/card.js');
+const SomCard = require('./card.js');
 
 const rickey = { ab: 536, h: 179, doubles: 22, triples: 4, hr: 28, bb: 117, so: 93, hbp: 2, sf: 3, sb: 100, cs: 26 };
 

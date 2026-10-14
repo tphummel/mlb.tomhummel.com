@@ -1,4 +1,12 @@
-{{ define "main" }}
+---
+title: "Strat-O-Matic Batter Card Generator"
+date: 2026-10-14
+description: "Enter a season stat line from the back of a baseball card and get a basic-game Strat-O-Matic style batter card to download, print or embed."
+tags: ["strat-o-matic", "tools"]
+---
+Enter a hitter's season line from the back of a baseball card and get a basic-game, Strat-O-Matic style batter card: three columns, one row for each dice total from 2 to 12.
+
+{{< strat-card.inline >}}
 <style>
   .card-tool { display: grid; gap: 2em; grid-template-columns: minmax(0, 1fr); align-items: start; }
   @media (min-width: 900px) { .card-tool { grid-template-columns: minmax(0, 1fr) 280px; } }
@@ -30,11 +38,6 @@
     #card-wrap svg { width: 2.5in; max-width: none; height: 3.5in; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
-
-<h2>{{ .Title }}</h2>
-<div>{{ partial "breadcrumb.html" . }}</div>
-
-{{ .Content }}
 
 <div class="card-tool">
   <form id="card-form" autocomplete="off" novalidate>
@@ -132,7 +135,6 @@
 </div>
 
 <p class="hint">This follows the layout of the basic Strat-O-Matic game but is an approximation, not the company's own card formula.</p>
-
-<script src="{{ "strat-o-matic/card.js" | relURL }}"></script>
-<script src="{{ "strat-o-matic/app.js" | relURL }}"></script>
-{{ end }}
+<script src="{{ (.Page.Resources.Get "card.js").RelPermalink }}"></script>
+<script src="{{ (.Page.Resources.Get "app.js").RelPermalink }}"></script>
+{{< /strat-card.inline >}}
