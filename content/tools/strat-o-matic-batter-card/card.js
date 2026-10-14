@@ -33,13 +33,17 @@
   var GROUND_FIELDERS = [['1b', 0.18], ['2b', 0.28], ['ss', 0.32], ['3b', 0.22]];
   var LINE_POP_VARIANTS = [['LO (ss)', 0.3], ['LO (2b)', 0.25], ['PO (3b)', 0.25], ['PO (1b)', 0.2]];
 
+  var LETTERS = ['A', 'B', 'C', 'D'];
+
+  // [key, required]. BB, 2B and 3B can instead be worked out from OBP and SLG.
   var STAT_FIELDS = [
-    ['ab', true], ['h', true], ['doubles', true], ['triples', true], ['hr', true],
-    ['bb', true], ['so', true],
+    ['ab', true], ['h', true], ['hr', true], ['so', true],
+    ['doubles', false], ['triples', false], ['bb', false],
     ['hbp', false], ['sf', false], ['sh', false], ['sb', false], ['cs', false]
   ];
 
-  var LETTERS = ['A', 'B', 'C', 'D'];
+  // Without both 2B and 3B, assume this many triples per double.
+  var TRIPLES_PER_DOUBLE = 0.1;
 
   function toInt(v) {
     if (typeof v === 'number') return Number.isInteger(v) ? v : NaN;
@@ -47,30 +51,104 @@
     return /^\d+$/.test(s) ? parseInt(s, 10) : NaN;
   }
 
-  // Validates raw form values. Returns {errors: [...], stats: {...}|null}.
+  function isBlank(v) {
+    return v == null || String(v).trim() === '';
+  }
+
+  // Accepts .412 or 0.412. Returns null when blank, NaN when invalid.
+  function toRate(v, max) {
+    if (isBlank(v)) return null;
+    var s = String(v).trim();
+    if (!/^(\d+\.?\d*|\.\d+)$/.test(s)) return NaN;
+    var n = parseFloat(s);
+    return n > max ? NaN : n;
+  }
+
+  // Fills in BB from OBP and 2B/3B from SLG when those counts are blank.
+  // OBP = (H + W) / (AB + W + SF) where W = BB + HBP, so W is solvable.
+  // SLG gives total bases, and TB = H + 2B + 2*3B + 3*HR, which fixes 2B + 2*3B
+  // but not the split between them.
+  function fillFromRates(stats, missing, obp, slg, errors) {
+    var estimated = [];
+    if (missing.bb) {
+      if (obp == null) {
+        errors.push('Enter BB, or OBP to work it out');
+      } else if (obp >= 1) {
+        errors.push('OBP must be less than 1');
+      } else {
+        var w = Math.round((obp * (stats.ab + stats.sf) - stats.h) / (1 - obp));
+        if (w - stats.hbp < 0) errors.push('OBP is too low for these H and AB');
+        else { stats.bb = w - stats.hbp; estimated.push('bb'); }
+      }
+    }
+    if (missing.doubles || missing.triples) {
+      if (slg == null) {
+        errors.push('Enter 2B and 3B, or SLG to work them out');
+      } else {
+        var extra = Math.round(slg * stats.ab) - stats.h - 3 * stats.hr; // 2B + 2*3B
+        if (extra < 0) {
+          errors.push('SLG is too low for these H, AB and HR');
+        } else if (missing.doubles && missing.triples) {
+          // D + T = extra - T can't exceed the hits that aren't homers, so there is a
+          // floor on triples when almost every hit is an extra-base hit.
+          var avail = stats.h - stats.hr;
+          var t = Math.round(extra * TRIPLES_PER_DOUBLE / (1 + 2 * TRIPLES_PER_DOUBLE));
+          t = Math.min(Math.floor(extra / 2), Math.max(t, extra - avail));
+          stats.triples = t;
+          stats.doubles = extra - 2 * t;
+          // SLG is rounded, so a hit or two of slop is fine
+          var over = stats.doubles + stats.triples - avail;
+          if (over > 2) errors.push('SLG is too high for these H and HR');
+          else if (over > 0) stats.doubles -= over;
+          estimated.push('doubles', 'triples');
+        } else if (missing.triples) {
+          stats.triples = Math.round((extra - stats.doubles) / 2);
+          if (stats.triples < 0) errors.push('SLG is too low for the 2B entered');
+          else estimated.push('triples');
+        } else {
+          stats.doubles = extra - 2 * stats.triples;
+          if (stats.doubles < 0) errors.push('SLG is too low for the 3B entered');
+          else estimated.push('doubles');
+        }
+      }
+    }
+    return estimated;
+  }
+
+  // Validates raw form values. Returns {errors, stats, estimated}.
   function parseStats(raw) {
     var errors = [];
     var stats = {};
+    var missing = {};
     STAT_FIELDS.forEach(function (f) {
       var key = f[0], required = f[1];
-      var v = raw[key];
-      if (v == null || String(v).trim() === '') {
+      if (isBlank(raw[key])) {
         if (required) errors.push(key.toUpperCase() + ' is required');
+        missing[key] = true;
         stats[key] = 0;
         return;
       }
-      var n = toInt(v);
+      var n = toInt(raw[key]);
       if (isNaN(n)) errors.push(key.toUpperCase() + ' must be a whole number, 0 or more');
       stats[key] = isNaN(n) ? 0 : n;
     });
-    if (errors.length) return { errors: errors, stats: null };
+    var obp = toRate(raw.obp, 1), slg = toRate(raw.slg, 4);
+    if (isNaN(obp)) errors.push('OBP should look like .412');
+    if (isNaN(slg)) errors.push('SLG should look like .550');
+    if (errors.length) return { errors: errors, stats: null, estimated: [] };
 
     if (stats.h > stats.ab) errors.push('H cannot exceed AB');
-    if (stats.doubles + stats.triples + stats.hr > stats.h) errors.push('2B + 3B + HR cannot exceed H');
+    if (stats.hr > stats.h) errors.push('HR cannot exceed H');
     if (stats.h + stats.so > stats.ab) errors.push('H + SO cannot exceed AB');
+    if (errors.length) return { errors: errors, stats: null, estimated: [] };
+
+    var estimated = fillFromRates(stats, missing, obp, slg, errors);
+    if (errors.length) return { errors: errors, stats: null, estimated: [] };
+
+    if (stats.doubles + stats.triples + stats.hr > stats.h) errors.push('2B + 3B + HR cannot exceed H');
     if (stats.ab + stats.bb + stats.hbp + stats.sf + stats.sh === 0) errors.push('Plate appearances must be more than 0');
-    if (errors.length) return { errors: errors, stats: null };
-    return { errors: [], stats: stats };
+    if (errors.length) return { errors: errors, stats: null, estimated: [] };
+    return { errors: [], stats: stats, estimated: estimated };
   }
 
   function plateAppearances(s) {
@@ -297,7 +375,7 @@
 
   /*
    * meta: {name, year, team, bats, pos, fielding, tendency, stealing, bunting, hitAndRun}
-   * raw: form values for the stats (see STAT_FIELDS)
+   * raw: form values for the stats (see STAT_FIELDS), plus optional obp and slg
    * Returns {errors} or {card}.
    */
   function buildCard(meta, raw) {
@@ -325,6 +403,7 @@
         bunting: pickLetter(meta.bunting, autoBunting(s)),
         hitAndRun: pickLetter(meta.hitAndRun, autoHitAndRun(s)),
         stats: s,
+        estimated: parsed.estimated,
         pa: plateAppearances(s),
         chances: chances,
         grid: grid,

@@ -11,7 +11,7 @@
   var svg = '';
 
   var FIELDS = ['name', 'year', 'team', 'bats', 'pos', 'fielding', 'ab', 'h', 'doubles', 'triples', 'hr',
-    'bb', 'so', 'hbp', 'sf', 'sh', 'sb', 'cs', 'tendency', 'stealing', 'bunting', 'hitAndRun'];
+    'bb', 'so', 'obp', 'slg', 'hbp', 'sf', 'sh', 'sb', 'cs', 'tendency', 'stealing', 'bunting', 'hitAndRun'];
 
   function values() {
     var v = {};
@@ -55,6 +55,15 @@
     });
   }
 
+  var LABELS = { bb: 'BB', doubles: '2B', triples: '3B' };
+
+  function showEstimates(card) {
+    var el = document.getElementById('estimates');
+    el.hidden = !card.estimated.length;
+    el.textContent = card.estimated.length ? 'Worked out from OBP and SLG: ' +
+      card.estimated.map(function (k) { return LABELS[k] + ' ' + card.stats[k]; }).join(', ') : '';
+  }
+
   function saveToUrl(v) {
     var q = new URLSearchParams();
     FIELDS.forEach(function (f) { if (v[f]) q.set(f, v[f]); });
@@ -82,6 +91,7 @@
     detail.hidden = false;
     document.getElementById('embed-code').value = svg;
     renderDetail(current);
+    showEstimates(current);
     saveToUrl(v);
   }
 
@@ -94,6 +104,7 @@
       actions.hidden = true;
       detail.hidden = true;
       errorsEl.hidden = true;
+      document.getElementById('estimates').hidden = true;
       try { history.replaceState(null, '', location.pathname); } catch (e) { /* ignore */ }
     }, 0);
   });

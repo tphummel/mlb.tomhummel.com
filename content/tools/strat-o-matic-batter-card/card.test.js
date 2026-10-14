@@ -5,6 +5,14 @@ const SomCard = require('./card.js');
 
 const rickey = { ab: 536, h: 179, doubles: 22, triples: 4, hr: 28, bb: 117, so: 93, hbp: 2, sf: 3, sb: 100, cs: 26 };
 
+// OBP and SLG as printed (3 decimals) for a stat line
+function rates(r) {
+  const hbp = r.hbp || 0, sf = r.sf || 0;
+  const obp = (r.h + r.bb + hbp) / (r.ab + r.bb + hbp + sf);
+  const slg = (r.h + r.doubles + 2 * r.triples + 3 * r.hr) / r.ab;
+  return { obp: obp.toFixed(3), slg: slg.toFixed(3) };
+}
+
 function build(raw, meta) {
   const r = SomCard.buildCard(meta || { name: 'Test', bats: 'R' }, raw);
   assert.deepStrictEqual(r.errors, undefined, JSON.stringify(r.errors));
@@ -56,10 +64,56 @@ test('packs random stat lines', () => {
   }
 });
 
+test('BB, 2B and 3B can be worked out from OBP and SLG', () => {
+  const parsed = SomCard.parseStats({ ab: 536, h: 179, hr: 28, so: 93, hbp: 2, sf: 3, ...rates(rickey) });
+  assert.deepStrictEqual(parsed.errors, []);
+  assert.deepStrictEqual(parsed.estimated, ['bb', 'doubles', 'triples']);
+  const s = parsed.stats;
+  assert.ok(Math.abs(s.bb - 117) <= 1, 'bb ' + s.bb);
+  // total bases are preserved exactly, only the 2B/3B split is a guess
+  assert.strictEqual(s.doubles + 2 * s.triples, 22 + 2 * 4);
+});
+
+test('estimating from rates stays close to the real stat line', () => {
+  let seed = 11;
+  const rnd = (n) => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed % n; };
+  for (let i = 0; i < 200; i++) {
+    const ab = 100 + rnd(500), so = rnd(Math.floor(ab * 0.3));
+    const h = rnd(Math.min(ab - so, Math.floor(ab * 0.35)) + 1);
+    const hr = rnd(Math.min(h, 45) + 1);
+    const triples = rnd(Math.min(h - hr, 8) + 1);
+    const doubles = rnd(Math.min(h - hr - triples, 45) + 1);
+    const real = { ab, h, doubles, triples, hr, bb: rnd(120), so, hbp: rnd(10), sf: rnd(8) };
+    const p = SomCard.parseStats({ ab, h, hr, so, hbp: real.hbp, sf: real.sf, ...rates(real) });
+    assert.deepStrictEqual(p.errors, []);
+    assert.ok(Math.abs(p.stats.bb - real.bb) <= 2, `bb ${p.stats.bb} vs ${real.bb}`);
+    assert.ok(Math.abs(p.stats.doubles + 2 * p.stats.triples - doubles - 2 * triples) <= 1);
+    assert.strictEqual(SomCard.buildCard({}, { ab, h, hr, so, hbp: real.hbp, sf: real.sf, ...rates(real) }).card.grid.flat().length, 33);
+  }
+});
+
+test('explicit counts win over rates; one known extra-base count pins the other', () => {
+  const p = SomCard.parseStats({ ab: 500, h: 150, hr: 20, so: 80, bb: 60, doubles: 30, triples: 5, obp: '.100', slg: '.100' });
+  assert.deepStrictEqual(p.estimated, []);
+  assert.strictEqual(p.stats.bb, 60);
+  const q = SomCard.parseStats({ ab: 500, h: 150, hr: 20, so: 80, bb: 60, doubles: 30, slg: (150 + 30 + 2 * 5 + 60) / 500 });
+  assert.strictEqual(q.stats.triples, 5);
+});
+
+test('rate validation', () => {
+  const base = { ab: 500, h: 150, hr: 20, so: 80 };
+  assert.ok(SomCard.parseStats({ ...base, obp: '.400', slg: '1.200' }).errors.some((e) => /SLG is too high/.test(e)));
+  assert.ok(SomCard.parseStats({ ...base, doubles: 30, triples: 5 }).errors.some((e) => /BB, or OBP/.test(e)));
+  assert.ok(SomCard.parseStats({ ...base, bb: 50 }).errors.some((e) => /2B and 3B, or SLG/.test(e)));
+  assert.ok(SomCard.parseStats({ ...base, obp: '.200', slg: '.500' }).errors.some((e) => /OBP is too low/.test(e)));
+  assert.ok(SomCard.parseStats({ ...base, obp: '.350', slg: '.300' }).errors.some((e) => /SLG is too low/.test(e)));
+  assert.ok(SomCard.parseStats({ ...base, obp: '412', slg: '.5' }).errors.some((e) => /OBP should look like/.test(e)));
+});
+
 test('validation', () => {
   const r = SomCard.buildCard({}, { ab: 10, h: 12, doubles: 0, triples: 0, hr: 0, bb: 0, so: 0 });
   assert.ok(r.errors.some((e) => /H cannot exceed AB/.test(e)));
-  assert.ok(SomCard.buildCard({}, {}).errors.length >= 7);
+  assert.ok(SomCard.buildCard({}, {}).errors.length >= 4);
   assert.ok(SomCard.buildCard({}, { ab: '1.5', h: 0, doubles: 0, triples: 0, hr: 0, bb: 0, so: 0 }).errors.length);
 });
 

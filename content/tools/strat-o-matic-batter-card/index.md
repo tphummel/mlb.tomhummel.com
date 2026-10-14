@@ -66,13 +66,15 @@ Enter a hitter's season line from the back of a baseball card and get a basic-ga
       <div class="fields">
         <label>AB <input name="ab" type="text" inputmode="numeric" required></label>
         <label>H <input name="h" type="text" inputmode="numeric" required></label>
-        <label>2B <input name="doubles" type="text" inputmode="numeric" required></label>
-        <label>3B <input name="triples" type="text" inputmode="numeric" required></label>
+        <label>2B <input name="doubles" type="text" inputmode="numeric"></label>
+        <label>3B <input name="triples" type="text" inputmode="numeric"></label>
         <label>HR <input name="hr" type="text" inputmode="numeric" required></label>
-        <label>BB <input name="bb" type="text" inputmode="numeric" required></label>
+        <label>BB <input name="bb" type="text" inputmode="numeric"></label>
         <label>SO <input name="so" type="text" inputmode="numeric" required></label>
+        <label>OBP <input name="obp" type="text" inputmode="decimal" maxlength="5" placeholder=".412"></label>
+        <label>SLG <input name="slg" type="text" inputmode="decimal" maxlength="5" placeholder=".550"></label>
       </div>
-      <p class="hint">All counting stats, as printed on the card back. Doubles, triples and homers are included in H.</p>
+      <p class="hint">AB, H, HR and SO are required. Doubles and triples are included in H. Skip BB to work it out from OBP, and skip 2B and 3B to work them out from SLG. The split between doubles and triples is an estimate.</p>
     </fieldset>
 
     <fieldset>
@@ -114,6 +116,7 @@ Enter a hitter's season line from the back of a baseball card and get a basic-ga
       <button type="button" id="print" class="secondary">Print</button>
     </div>
     <div id="status" role="status"></div>
+    <p class="hint" id="estimates" hidden></p>
   </div>
 </div>
 
