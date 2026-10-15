@@ -10,8 +10,9 @@
   var current = null;
   var svg = '';
 
-  var FIELDS = ['name', 'year', 'team', 'bats', 'pos', 'fielding', 'ab', 'h', 'doubles', 'triples', 'hr',
-    'bb', 'so', 'obp', 'slg', 'hbp', 'sf', 'sh', 'sb', 'cs', 'tendency', 'stealing', 'bunting', 'hitAndRun'];
+  // every named control in the form, so each tool just declares its inputs in the HTML
+  var FIELDS = Array.prototype.map.call(form.elements, function (el) { return el.name; })
+    .filter(function (n, i, all) { return n && all.indexOf(n) === i; });
 
   function values() {
     var v = {};
@@ -26,7 +27,7 @@
 
   function filename(ext) {
     var base = (current.name + ' ' + current.year).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    return (base || 'batter') + '-card.' + ext;
+    return (base ? base + '-' : '') + current.cardType + '-card.' + ext;
   }
 
   function save(blob, name) {
@@ -55,13 +56,10 @@
     });
   }
 
-  var LABELS = { bb: 'BB', doubles: '2B', triples: '3B' };
-
   function showEstimates(card) {
     var el = document.getElementById('estimates');
-    el.hidden = !card.estimated.length;
-    el.textContent = card.estimated.length ? 'Worked out from OBP and SLG: ' +
-      card.estimated.map(function (k) { return LABELS[k] + ' ' + card.stats[k]; }).join(', ') : '';
+    el.hidden = !card.estimateNote;
+    el.textContent = card.estimateNote || '';
   }
 
   function saveToUrl(v) {
