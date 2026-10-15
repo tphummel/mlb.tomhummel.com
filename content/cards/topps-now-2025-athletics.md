@@ -11,7 +11,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 1046
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 27
     date: null
@@ -191,7 +192,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 826
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 400
     date: null
@@ -200,7 +202,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 419
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 401
     date: null
@@ -245,7 +248,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 683
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 528
     date: null
@@ -263,7 +267,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 534
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 687
     date: null
@@ -272,7 +277,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 4388
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 711
     date: null
@@ -281,7 +287,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 10738
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
   - number: 787
     date: null
@@ -290,7 +297,8 @@ checklist:
     shortprint: null
     labels: []
     print_run: 3554
-    have_base: false
+    have_base: true
+    acquired: 2026-10-15
 
 ---
 
