@@ -65,7 +65,7 @@ checklist:
     shortprint: null
     labels: ["Call Up"]
     print_run: 1574
-    have_base: false
+    have_base: true
 
   - number: 222
     date: null
@@ -74,7 +74,7 @@ checklist:
     shortprint: null
     labels: []
     print_run: 884
-    have_base: false
+    have_base: true
 
   - number: 247
     date: null
@@ -92,7 +92,7 @@ checklist:
     shortprint: null
     labels: []
     print_run: 1238
-    have_base: false
+    have_base: true
 
   - number: 304
     date: null
