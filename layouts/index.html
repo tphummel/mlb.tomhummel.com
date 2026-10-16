@@ -18,7 +18,8 @@
 <p>
   {{ with .Site.GetPage "section" "til" }}<a href="{{ .RelPermalink }}">TILs</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "til") }}</sup> |
   {{ with .Site.GetPage "section" "blog" }}<a href="{{ .RelPermalink }}">Blog Posts</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "blog") }}</sup> |
-  {{ with .Site.GetPage "section" "cards" }}<a href="{{ .RelPermalink }}">Cards</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "cards") }}</sup>
+  {{ with .Site.GetPage "section" "cards" }}<a href="{{ .RelPermalink }}">Cards</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "cards") }}</sup> |
+  {{ with .Site.GetPage "section" "tools" }}<a href="{{ .RelPermalink }}">Tools</a>{{ end }} <sup>{{ len (where $.Site.RegularPages "Section" "tools") }}</sup>
 </p>
 
 <div>

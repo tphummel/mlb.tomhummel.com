@@ -1,0 +1,53 @@
+{{- /*
+  Shared frame for the Strat-O-Matic card generators: the form buttons, card
+  preview, downloads, embed box and the table showing how the card was made.
+  The tool's own form fields go in the shortcode body. The page bundle must have
+  a card.js that defines window.SomCard.buildCard(meta, raw).
+  Params: unit - what each result is a share of ("plate appearance" / "batter faced").
+*/ -}}
+{{ $shared := site.GetPage "/tools/strat-o-matic-shared" -}}
+<link rel="stylesheet" href="{{ ($shared.Resources.Get "card-tool.css").RelPermalink }}">
+
+<div class="card-tool">
+  <form id="card-form" autocomplete="off" novalidate>
+{{ .Inner | safeHTML }}
+    <div class="actions">
+      <button type="submit">Make card</button>
+      <button type="reset" class="secondary" id="reset">Clear</button>
+    </div>
+    <ul class="errors" id="errors" role="alert" hidden></ul>
+  </form>
+
+  <div>
+    <div id="card-wrap" aria-live="polite"><div id="card-empty">Your card will show up here.</div></div>
+    <div class="actions" id="card-actions" hidden>
+      <button type="button" id="dl-png">PNG</button>
+      <button type="button" id="dl-svg" class="secondary">SVG</button>
+      <button type="button" id="print" class="secondary">Print</button>
+    </div>
+    <div id="status" role="status"></div>
+    <p class="hint" id="estimates" hidden></p>
+  </div>
+</div>
+
+<div class="card-detail" id="detail" hidden>
+  <h3>Embed</h3>
+  <p>Paste this SVG into any page or post. It has no scripts or external files.</p>
+  <textarea id="embed-code" readonly></textarea>
+  <div class="actions">
+    <button type="button" id="copy-embed" class="secondary">Copy SVG</button>
+    <button type="button" id="copy-link" class="secondary">Copy link to this card</button>
+  </div>
+
+  <h3>How the card was made</h3>
+  <p>Each result gets a whole number of chances out of 108, in proportion to how often it happened per {{ .Get "unit" }}. The row you roll decides how many chances a cell is worth (a 7 is six times a 2).</p>
+  <table>
+    <thead><tr><th>Result</th><th>Season share</th><th>Chances</th><th>Card share</th></tr></thead>
+    <tbody id="detail-rows"></tbody>
+  </table>
+</div>
+
+<p class="hint">This follows the layout of the basic Strat-O-Matic game but is an approximation, not the company's own card formula.</p>
+<script src="{{ ($shared.Resources.Get "engine.js").RelPermalink }}"></script>
+<script src="{{ (.Page.Resources.Get "card.js").RelPermalink }}"></script>
+<script src="{{ ($shared.Resources.Get "app.js").RelPermalink }}"></script>

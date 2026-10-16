@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Tom Hummel :: Baseball Blog"
 enableInlineShortcodes = true
 enableGitInfo = true
+# keep co-located tests out of the build
+ignoreFiles = ["\\.test\\.js$"]
 
 [taxonomies]
   tag = "tags"
