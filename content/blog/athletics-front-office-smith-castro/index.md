@@ -10,7 +10,7 @@ profiles:
     role: President of Baseball Operations
     hired: "2026-10-19"
     replaces: David Forst (fired early August 2026)
-    previous: Red Sox assistant general manager
+    previous: Red Sox senior vice president / assistant general manager
     bio:
       - [Age at hire, "31"]
       - [Birthdate, "Not found in sources"]
@@ -20,13 +20,13 @@ profiles:
       - [Playing career, "None found in sources"]
     stats:
       - [Front-office stops, "2 (Rays, Red Sox)"]
-      - [Rays seasons, "Parts of 7"]
-      - [Red Sox seasons, "Joined Oct. 2024"]
-      - [Background, "Research and development"]
+      - [Rays seasons, "7 (research and development)"]
+      - [Red Sox seasons, "2 (2024-2026)"]
+      - [Led at Boston, "Analytics, sciences, systems and technology"]
     career:
       - ["2018", "Graduates from Georgia", "University of Georgia"]
-      - ["~2018-2024", "Analyst, rising to director of predictive modeling", "Tampa Bay Rays, research and development"]
-      - ["2024-2026", "Assistant general manager; oversight of research and development", "Boston Red Sox"]
+      - ["2018-2024", "Research and development; analyst, later director of predictive modeling", "Tampa Bay Rays (7 seasons)"]
+      - ["2024-2026", "Senior vice president / assistant general manager; oversaw baseball research and development", "Boston Red Sox"]
       - ["2026", "President of baseball operations", "Athletics"]
   - name: Cam Castro
     initials: CC
@@ -38,25 +38,28 @@ profiles:
       - [Age at hire, "36"]
       - [Birthdate, "Not found in sources"]
       - [Hometown, "Not found in sources"]
-      - [College, "Lake Erie College (undergrad); Defiance College (graduate)"]
+      - [College, "Lake Erie College (2012); Defiance College (graduate)"]
       - [Degrees, "B.S. in legal studies; master's in sport management"]
       - [Playing career, "None found in sources"]
     stats:
       - [Front-office stops, "1 (Brewers)"]
-      - [Brewers seasons, "2019-2026"]
-      - [College head coach, "Lake Erie, from 2016 (sources vary: 2 to 3 seasons)"]
+      - [Brewers seasons, "8 (2019-2026)"]
+      - [College coaching seasons, "7 (Defiance, Augustana, Lake Erie)"]
+      - [Lake Erie, "Head coach from Aug. 2016; 3rd season in 2018"]
       - [Background, "Pitching development"]
     career:
-      - ["2012-2016", "Coaching staff", "Defiance College"]
-      - ["Dec. 2015-Jun. 2016", "Pitching trainer (about 7 months)", "Driveline Baseball"]
-      - ["2016-2018", "Head coach; teams set a strikeout record", "Lake Erie College"]
-      - ["2019", "Minor league pitching coach", "Milwaukee Brewers (Carolina Mudcats)"]
+      - ["2012", "Graduates from Lake Erie College", "Bachelor's in legal studies"]
+      - ["2012-2016", "Coaching staff; worked mainly with pitchers, recruiting and fundraising", "Defiance College"]
+      - ["Dec. 2015-Jun. 2016", "Trainer (about 7 months)", "Driveline Baseball, Seattle"]
+      - ["Before Aug. 2016", "Coach (years not given)", "Augustana University (S.D.)"]
+      - ["Aug. 2016-2018+", "Head coach; teams broke school strikeout and K/9 records in each of his first two seasons", "Lake Erie College"]
+      - ["2019", "Single-A pitching coach", "Milwaukee Brewers"]
       - ["2019-2022", "Minor league pitching coordinator, then director of pitching development", "Milwaukee Brewers"]
       - ["Jul. 2022", "Vice president of player development", "Milwaukee Brewers"]
       - ["Oct. 2024", "Senior vice president of player development and performance", "Milwaukee Brewers"]
       - ["Nov. 2026", "General manager", "Athletics"]
 ---
-The Athletics rebuilt the top of their baseball operations department this fall. Taylor Smith was named president of baseball operations on October 19, 2026. Cam Castro was named general manager on November 4. The club went 64-98 in 2026.
+The Athletics rebuilt the top of their baseball operations department this fall. Taylor Smith was named president of baseball operations on October 19, 2026. Cam Castro was named general manager on November 4. The club went 64-98 in 2026, its fifth straight losing season and 12 wins worse than 2025.
 
 <!--more-->
 
@@ -98,7 +101,9 @@ The Athletics rebuilt the top of their baseball operations department this fall.
 
 ## Notes
 
-- Sources disagree on how long Castro coached at Lake Erie (two or three seasons) and on the exact timing of his Brewers titles.
-- Birthdates and hometowns marked "Not found" were not in the sources reviewed.
-- Smith: [MLB.com](https://www.mlb.com/amp/news/taylor-smith-named-a-s-president-of-baseball-operations.html), [Boston Globe](https://www.bostonglobe.com/2024/10/23/sports/red-sox-taylor-smith-assistant-general-manager/), [MLB Trade Rumors](https://www.mlbtraderumors.com/2024/10/red-sox-hire-taylor-smith-from-rays-for-possible-agm-role.html).
-- Castro: [MLB.com](https://www.mlb.com/news/a-s-name-cam-castro-general-manager), [Baseball-Reference Bullpen](https://www.baseball-reference.com/bullpen/Cameron_Castro), [Lake Erie College](https://lakeeriestorm.com/sports/baseball/roster/coaches/cameron-castro/514), [Yahoo Sports](https://sports.yahoo.com/articles/bet-pitching-development-cam-castro-183237512.html).
+- Birthdates and Castro's hometown were not in the sources reviewed. Only ages at hire (Smith 31, Castro 36) are reported.
+- Lake Erie's coach page also notes the Storm received the 2018 Technology in Baseball Award from Diamond Kinetics under Castro.
+- The Yahoo Sports date for Castro's Driveline stint (Dec. 2015 to Jun. 2016) differs slightly in framing from Lake Erie's page, which says only that Driveline came before his Augustana and Lake Erie roles.
+- Headshots are cropped from the A's welcome graphics published with the MLB.com announcements.
+- Smith: [MLB.com](https://www.mlb.com/news/taylor-smith-named-a-s-president-of-baseball-operations), [Boston Globe](https://www.bostonglobe.com/2024/10/23/sports/red-sox-taylor-smith-assistant-general-manager/), [MLB Trade Rumors](https://www.mlbtraderumors.com/2024/10/red-sox-hire-taylor-smith-from-rays-for-possible-agm-role.html).
+- Castro: [MLB.com](https://www.mlb.com/news/a-s-name-cam-castro-general-manager), [Lake Erie College](https://lakeeriestorm.com/sports/baseball/roster/coaches/cameron-castro/514), [Yahoo Sports](https://sports.yahoo.com/articles/bet-pitching-development-cam-castro-183237512.html).
