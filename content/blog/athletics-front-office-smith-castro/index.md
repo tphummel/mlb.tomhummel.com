@@ -2,7 +2,7 @@
 title: "The A's New Front Office: Taylor Smith and Cam Castro"
 date: 2026-11-18
 tags: []
-players: ["taylor-smith", "cam-castro"]
+players: []
 teams: ["athletics"]
 profiles:
   - name: Taylor Smith
