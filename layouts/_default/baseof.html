@@ -18,177 +18,33 @@
     <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css"> -->
     <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/water.css@2/out/light.min.css"> -->
     <!-- <link rel="stylesheet" href="https://unpkg.com/mvp.css"> -->
-    <style type="text/css">
-      /* https://www.swyx.io/css-100-bytes */
-      :root {
-        color-scheme: dark;
-      }
+    <!-- style sheet: fleer-1991 (junk.tomhummel.com/styles/fleer-1991/) -->
+    <link rel="stylesheet" href="https://junk.tomhummel.com/styles/fleer-1991/fleer-1991.css">
+    <style>
+      /* glue for plain Hugo/markdown output, built from fleer-1991 tokens */
+      .fl-page { max-width: min(110ch, 100%); margin: 0 auto; padding: clamp(1rem, 4vw, 2rem); }
+      .fl-page :is(h1, h2, h3) { margin-top: 1.5em; }
+      .fl-page > :is(h1, h2):first-child { margin-top: 0; }
+      .fl-page blockquote { margin: 1.5rem 0; padding: 0.75rem 1.25rem; border-left: 0.4rem solid var(--fl-yellow); background: var(--fl-surface); border-radius: var(--fl-radius); }
+      .fl-page table { border-collapse: collapse; width: 100%; margin: 1rem 0; background: var(--fl-surface); }
+      .fl-page th, .fl-page td { padding: 0.45rem 0.7rem; text-align: left; border: 1px solid var(--fl-line); }
+      .fl-page th { background: var(--fl-blue); color: var(--fl-on-blue); font-size: 0.8rem; text-transform: uppercase; letter-spacing: var(--fl-track-label); }
+      .fl-page pre { overflow-x: auto; padding: 1rem; background: var(--fl-surface); border: 1px solid var(--fl-line); border-radius: var(--fl-radius); }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+      .breadcrumb { display: flex; flex-wrap: wrap; gap: 0.35em; font-size: 0.95em; }
+      .breadcrumb span { display: flex; gap: 0.35em; align-items: baseline; white-space: nowrap; }
 
-      html {
-        max-width: min(110ch, 100vw);
-        padding: clamp(2.5em, 6vw, 3.5em) clamp(1em, 4vw, 1.75em);
-        margin: auto;
-        line-height: 1.8;
-        font-size: clamp(1.05em, 1vw + 0.95em, 1.2em);
-        font-family: "Courier Prime", "IBM Plex Mono", "Fira Code", "Source Code Pro", "Courier New", monospace;
-        background: #071c11;
-        color: #f4fff8;
-      }
-
-      body {
-        margin: 0;
-        background: transparent;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-        margin: 3em 0 1em;
-        color: #b4ffd8;
-        letter-spacing: 0.04em;
-      }
-
-      p, ul, ol {
-        margin-bottom: 2em;
-      }
-
-      a {
-        color: #6bf7b2;
-        text-decoration: none;
-        border-bottom: 1px dotted rgba(107, 247, 178, 0.6);
-        transition: color 0.2s ease, border-color 0.2s ease;
-      }
-
-      a:hover,
-      a:focus {
-        color: #dcffe9;
-        border-color: #dcffe9;
-      }
-
-      code, pre {
-        font-family: inherit;
-        background: rgba(244, 255, 248, 0.08);
-        color: #dcffe9;
-        border-radius: 6px;
-      }
-
-      code {
-        padding: 0.1em 0.3em;
-      }
-
-      pre {
-        padding: 1.25em;
-        overflow-x: auto;
-      }
-
-      blockquote {
-        border-left: 3px solid #4de0a8;
-        padding-left: 1.5em;
-        color: #dcffe9;
-        background: rgba(77, 224, 168, 0.08);
-        margin: 2.5em 0;
-      }
-
-      hr {
-        border: none;
-        border-top: 1px dashed rgba(180, 255, 216, 0.4);
-        margin: 3em 0;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 2.5em;
-        background: rgba(7, 28, 17, 0.6);
-      }
-
-      th, td {
-        padding: 0.75em 1em;
-        border: 1px solid rgba(180, 255, 216, 0.3);
-      }
-
-      th {
-        background: rgba(107, 247, 178, 0.15);
-        color: #f4fff8;
-      }
-
-      .breadcrumb {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35em;
-        font-size: 0.95em;
-        letter-spacing: 0.02em;
-      }
-
-      .breadcrumb span {
-        display: flex;
-        gap: 0.35em;
-        align-items: baseline;
-        white-space: nowrap;
-      }
-
-      .meta-line {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4em;
-        align-items: baseline;
-        margin-bottom: 1.5em;
-        font-size: 0.95em;
-        letter-spacing: 0.02em;
-      }
-
-      .meta-line .meta-label {
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.85em;
-        letter-spacing: 0.14em;
-      }
-
-      .meta-line .meta-label::after {
-        content: ":";
-        margin-left: 0.35em;
-      }
-
-      .meta-line .meta-value {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4em;
-      }
-
-      .meta-line .meta-value span::before {
-        content: ",";
-        margin-right: 0.3em;
-      }
-
-      .meta-line .meta-value span:first-child::before {
-        content: "";
-        margin-right: 0;
-      }
-
-      @media (max-width: 700px) {
-        html {
-          line-height: 1.7;
-          letter-spacing: normal;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-          letter-spacing: 0.02em;
-          margin: 2.5em 0 0.75em;
-        }
-
-        .meta-line {
-          font-size: 0.9em;
-        }
-      }
+      .meta-line { display: flex; flex-wrap: wrap; gap: 0.4em; align-items: baseline; margin-bottom: 1rem; font-size: 0.95em; }
+      .meta-line .meta-label { font-weight: 700; text-transform: uppercase; font-size: 0.8em; letter-spacing: var(--fl-track-label); color: var(--fl-fg-muted); }
+      .meta-line .meta-label::after { content: ":"; margin-left: 0.35em; }
+      .meta-line .meta-value { display: flex; flex-wrap: wrap; gap: 0.4em; }
+      .meta-line .meta-value span::before { content: ","; margin-right: 0.3em; }
+      .meta-line .meta-value span:first-child::before { content: ""; margin-right: 0; }
     </style>
   </head>
 
-  <body>
-    <div>
+  <body class="fl">
+    <div class="fl-page">
     {{ block "main" . }}
     {{ end }}
     </div>
